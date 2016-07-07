@@ -125,6 +125,7 @@ p{
 /*paragraph and list with the pic*/
 .pic{
     overflow:auto;
+    word-wrap: break-word;
 }
 
 ul{
