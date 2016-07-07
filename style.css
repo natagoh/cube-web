@@ -1,0 +1,233 @@
+body{
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    background:#E0E0E0;
+    background-image: url("linen4.jpg");
+    border-style:none;
+    margin: 0px 140px;
+    
+    /*ez noob parallax???? default: parallax on*/
+    background-attachment: fixed;
+}
+.parallaxOn{
+    background-attachment: fixed;
+}
+.parallaxOff{
+    background-attachment: scroll;
+}
+.b1{
+   background-image: url("linen4.jpg");
+}
+.b2{
+   background-image: url("mountain.jpg");
+}
+.b3{
+   background-image: url("sand1.jpg");
+    background-size: cover;
+}
+
+/*loading animation*/
+div#load_screen{
+	background: #000;
+	position: fixed;
+    z-index:10;
+	top: 0px;
+    right: 0px;
+	width: 100%;
+	height: 1600px;	
+           
+    /*for fade effect*/
+    opacity: 0.9;
+}
+.remove{
+    display:none;
+}
+div#load_text{
+	color:#FFF;
+	font-size: 1.25em;
+    width:120px;
+	height:24px;
+	margin: 300px auto;
+}
+/*loading animation*/
+.loader {
+  border: 16px solid #E0E0E0;
+  border-radius: 50%;
+  border-top: 16px solid deepskyblue;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+.loader1 {
+  border: 11px solid black;
+  border-radius: 50%;
+  border-top: 11px solid #E0E0E0;
+  width: 200px;
+  height: 200px;
+  position:relative;
+  right: 75px;
+  bottom: 125px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+section{
+    background-color:whitesmoke;
+    max-width: 1250px;
+    font-size: 1em;
+    /*give section shadows*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+}
+
+header{      
+    /*give section shadows*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+}
+h1{
+    background-color:dimgrey;
+    color:white;
+    font-size: 4em;
+    border-style:none;
+    margin:auto;
+    padding: 50px 50px 50px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 5px #000000;
+}
+h2{
+    background-color:darkgray;
+    border-style:none;
+    padding: 15px;
+    font-size: 1.5em; 
+}
+
+/*my profile pic*/
+img.profile{
+    /*border: 7px solid rgb(105, 105, 105);*/
+    margin-left: 20px;
+}
+
+/*paragraph styling*/
+p{
+    border-style:none;
+    padding: 0px 20px 10px 20px;
+    border-style:none;
+}
+
+/*paragraph and list with the pic*/
+.pic{
+    overflow:auto;
+}
+
+ul{
+    padding-bottom: 20px;
+    position:relative;
+    left: 20px;
+    margin:0;
+}
+ol{
+    padding-bottom: 20px;
+    position:relative;
+    left: 20px;
+    margin:0;
+}
+}
+/*how url linnks work*/
+a:link{
+    color:blue;
+    font-weight:bold;
+    text-decoration:none;
+}
+a:visited{
+    color:blue;
+    text-decoration:none;
+}
+a:hover{
+    color:hotpink;
+    text-decoration: underline;
+}   
+a:active{
+    color:darkmagenta;
+    text-decoration: underline;
+}
+
+/*navigation bar*/
+li.nav{
+    display: inline;
+    float: left;
+    font-size: 1.5em;
+}
+ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: static;
+    text-shadow: 2.5px 2.5px 4px #000000;
+}
+a.nav{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color:white;
+}
+a.nav:hover{
+    background-color: #111;
+    text-decoration:none;
+    font-weight: 600;
+}
+nav.fixed{
+    position:fixed;
+    top:0;
+}
+/*footer stuff*/
+footer{
+    margin:10px 0px;
+    padding: 5px 0px;
+}
+
+/*button stuff*/
+button{
+    background-color: deepskyblue;
+    font-size:20px;
+    border-style:none;
+    padding:5px 10px;
+    border-radius: 6px;
+    color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin: 10px;
+}
+button:hover{
+    background-color: white;
+    color: deepskyblue;
+    border-style:none;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*back to top button*/
+button.top{
+    background-color: #333;
+    font-size:15px;
+    font-weight: 500;
+    border-radius: 12px;
+    margin: 0px;
+    padding: 12px;
+    position:fixed;
+    left: 1220px;
+    bottom: 50px;
+}
+button.top:hover{
+    background-color: whitesmoke;
+    color: #333;
+    font-weight: 600;
+}

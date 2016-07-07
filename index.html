@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <script type="text/javascript" src="jquert-3.0.0.js"></script>
+    <!-- loading animation -->
+    <script>
+    setTimeout(function() {
+        document.getElementById("load_screen").className = "remove"; 
+    }, 1500);
+    </script>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Natasha Goenawan</title>
+    </head>
+    
+    <body id="master">
+        <!--loading animation-->
+        <div id="load_screen"><div id="load_text">loading...<div class="loader1"></div></div></div>
+        <header>
+            <h1>Natasha Goenawan</h1>
+            <div class="status"></div>
+            <nav>
+                <ul class="nav">
+                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('master');">Home</a></li>
+                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('about');">About</a></li>
+                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('testing');">Testing Features</a></li>
+                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('contact');">Contact</a></li>
+                </ul>
+            </nav>     
+        </header>        
+        <section id="about">
+            <h2>About</h2>
+                <img src="profile%20pic.jpg" alt="Me" style="float:left;width:304px;height:228px;" class="profile">
+                <p class="pic">My first paragraph. I am trying to learn how to make a good website because
+                Stanford has website hosting and I want to use it because I've always wanted my own website xD.</p> 
+                <p class="pic">I am an undergraduate student (class of 2020) at Stanford University 
+                majoring in computer science and bioengineering. Previously I attended the Kalamazoo
+                Area Math and Science Center and Kalamazoo Central High School. A list of things I plan to 
+                accomplish and/or just discovered:
+                </p>
+                <p class="pic">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <ul class="pic">
+                    <li>Study Computer Science, Bioengineering, or premed</li>
+                    <li>Just found out that making websites from scratch is complicated</li>
+                    <li>I can make fluffy pancakes</li>
+                </ul>
+        </section>   
+        <section id="testing">
+            <h2>Testing Features</h2>
+                <p>I am going to make more paragraphs so I can test more things on this website yay!!!!</p>
+                <ol>
+                    <li>add navigation bar</li>
+                    <li>loading screen</li>
+                    <li>learn javascript</li>
+                    <li>have epically awesome design</li>
+                    <li>pageview counter</li>
+                    <li>use website to advertise tutoring business</li>
+                    <li>get parallax</li>
+                    <li>professionalize it</li>
+                </ol>
+                <p>Let's visit 
+                    <a href = "https://www.facebook.com/" title = "aka the biggest time waster on the Internet">Facebook</a>
+                </p>
+                <p>Now let's go to 
+                    <a href = "http://agar.io/">my favorite webgame</a>
+                </p>
+                <p>loader thingy</p>
+                <div class="loader"></div>
+                <p>button thing</p>
+                <button onclick="parallaxOn()">Parallax On</button>
+                <button onclick="parallaxOff()">Parallax Off</button>
+                <p>background styles</p>
+                <button onclick="b1()">Background 1</button>
+                <button onclick="b2()">Background 2</button>
+                <button onclick="b3()">Background 3</button>
+        </section>  
+        <section id="contact">
+            <h2>Contact</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <ul>
+                    <li>Email: blahblahblah@gmail.com</li>
+                    <li>Phone: 555-555-5555</li>
+                </ul>
+            <p>My list of random links</p>
+            <ul>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+                <li><a href = "http://agar.io/">my favorite webgame</a></li>
+            </ul>
+        </section>
+        <footer>
+            Copyright (c) 2016 by Natasha Goenawan. All rights reversed.
+            <button class="top" onclick="return false;" onmousedown="backSmoother('master')">Back to Top ^</button>
+        </footer>
+        <!-- javascript stuff -->
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
