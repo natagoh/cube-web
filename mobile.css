@@ -1,14 +1,13 @@
-
 body{
     font-family: 'Roboto', sans-serif;
-    background-image: url("mountain1.jpg");
-    background-size: cover;
+    background-image: url("linen4.jpg");
     border-style:none;
     margin: auto;
-    width: 80%;   
+    width: 100%;
     
     /*ez noob parallax???? default: parallax on*/
     background-attachment: fixed;
+    
     text-justify: inter-word;
     text-align: justify;
 }
@@ -22,8 +21,7 @@ body{
    background-image: url("linen4.jpg");
 }
 .b2{
-    background-image: url("mountain1.jpg");
-    background-size: cover;
+   background-image: url("mountain.jpg");
 }
 .b3{
     background-image: url("sand1.jpg");
@@ -83,10 +81,8 @@ div#load_text{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-/*section stuff*/
 section{
-    background-color:rgba(255, 255, 255, 0.80);
+    background-color:whitesmoke;
     max-width: 1250px;
     font-size: 1em;
     /*give section shadows*/
@@ -94,27 +90,23 @@ section{
 }
 
 header{      
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
-}
-
-.no-shadow{
-    box-shadow: none;
+    /*give section shadows*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
 }
 h1{
-    background-color: rgba(51, 51, 51, 0.79);
+    background-color:dimgrey;
     color:white;
-    font-size: 5.2em;
+    font-size: 3em;
     font-weight: 100;
     border-style:none;
-    margin:0;
-    padding: 25px 50px;
+    margin:auto;
+    padding: 10px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 3.2px 3.2px 5px #000000;   
 }
 h2{
-    /*background-color:darkgray;*/
-    background-color: rgba(0, 0, 0, 0.40);
+    background-color:darkgray;
     border-style:none;
     padding: 8px 16px;
     font-size: 1.5em; 
@@ -123,9 +115,8 @@ h2{
 /*my profile pic*/
 img.profile{
     /*border: 7px solid rgb(105, 105, 105);*/
-    margin: 0px 20px;
+    margin-left: 20px;
     height: 15em;
-    float: left;
 }
 
 /*paragraph styling*/
@@ -135,6 +126,11 @@ p{
     border-style:none;
 }
 
+/*paragraph and list with the pic*/
+.pic{
+    overflow:auto;
+    word-wrap: break-word;
+}
 
 ul{
     padding-bottom: 20px;
@@ -169,71 +165,42 @@ a:active{
 }
 
 /*navigation bar*/
-nav ul li{
+li.nav{
     display: inline;
     float: left;
     font-size: 1.6em;
 }
-nav ul {
+ul.nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.82);
+    background-color: #333;
     position: static;
     text-shadow: 2.5px 2.5px 4px #000000;
 }
-nav ul li a{
+a.nav{
     display: block;
     text-align: center;
     padding: 10px 15px;
     text-decoration: none;
+    color:white;
     font-weight: 200;
-    margin:0;
 }
-.x-button{
-    float: left;
-    color: white;
-}
-.show{
-    color: white;
-}
-nav ul li a:link{
-    color: white;
-}
-nav ul li a:visited{
-    color: white;
-}
-nav ul li a:hover{
-    background-color: #000;
-    color: white;
+a.nav:hover{
+    background-color: #111;
     text-decoration:none;
     font-weight: 600;
     text-shadow: 0px 0px;
 }
-nav ul li a:active{
-    text-decoration: none;
-}
-nav{
-    z-index: 100;
-    margin: 0;
-}
-.nav-placeholder{
-    margin: 0 0 25px 0;
-}
-.fixed{
+nav.fixed{
     position:fixed;
-    font-size: 0.7em;
     top:0;
-    right:0;
-    width: 100%;
 }
-
 /*footer stuff*/
 footer{
     margin:10px 0px;
     padding: 5px 0px;
-    color: grey;
 }
 
 /*button stuff*/
@@ -254,11 +221,10 @@ button:hover{
     border-style:none;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
 footer{
-    background-color: rgba(51, 51, 51, 0.79);
-    color:white;
+    font-size: 0.85em;
     text-align: left;
-    padding: 5px;
 }
 /*back to top button*/
 button.top{
@@ -268,18 +234,10 @@ button.top{
     border-radius: 12px;
     margin: 0px;
     padding: 12px;
-    position:fixed;
-    left: 90.75%;
-    bottom: 8%;
-    font-size: .85em;
 }
 button.top:hover{
     background-color: whitesmoke;
     color: #333;
     font-weight: 600;
-}
-
-i.fa fa-arrow-circle-up{
-    color:white;
 }
 

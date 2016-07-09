@@ -1,17 +1,35 @@
-/*jQuery(document).ready(function(){
-    var navOffset = jQuery("nav").offset().top;
-    jQuery(window).scroll(function() {
+$(document).ready(function(){
+    var navOffset = $("nav").offset().top;
+    $("nav").wrap('<div class="nav-placeholder"></div>');
+    $(".nav-placeholder").height($("nav").outerHeight());
+    $("nav").wrapInner('<div class="nav-inner"></div>');
+    $(".x-button").hide();
+    $(".show").hide();
+    $(window).scroll(function() {
         var scrollPos = jQuery(window).scrollTop();
-        jQuery(".status").html(scrollPos);
-        
-        if(scrollPos >= navoffset){
-            jQuery("nav").addClass("fixed");
-        }
+        if(scrollPos >= navOffset){
+            $("nav").addClass("fixed");
+            $("header").addClass("no-shadow");
+            $(".x-button").show();
+        } 
         else{
-            jQuery("nav").removeClass("fixed");
+            $("nav").removeClass("fixed");
+            $("header").removeClass("no-shadow");
+            $(".x-button").hide();
         }
     })  
-})*/
+})
+
+//close navigation tab
+function closeNav() {
+    $("nav").css('visibility','hidden');
+    $("nav").removeClass("fixed");
+    var scrollPos = jQuery(window).scrollTop();
+    var navOffset = $("nav").offset().top;
+    if(scrollPos >= navOffset){
+        $("nav").css('visibility','visible');
+    }
+}
 
 //parallax on-off tester
 function parallaxOn() {

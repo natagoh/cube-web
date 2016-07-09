@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
     <html lang="en">
-    <script type="text/javascript" src="jquert-3.0.0.js"></script>
     <!-- loading animation -->
     <script>
     setTimeout(function() {
         document.getElementById("load_screen").className = "remove"; 
     }, 1500);
     </script>
-    <head> 
-        <link rel="stylesheet" type="text/css" href="style.css">
+    <head>        
+        <link rel="stylesheet" media="screen and (min-width: 600px) and (max-width: 3000px)" type="text/css" href="style.css">
+        <link rel="stylesheet" media="screen and (max-width: 600px)" type="text/css" href="mobile.css">
+        <script src="https://use.fontawesome.com/b8d7db3a54.js"></script>
         <!--fonts-->
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <meta charset="utf-8">
@@ -21,30 +22,31 @@
         <div id="load_screen"><div id="load_text">loading...<div class="loader1"></div></div></div>
         <header>
             <h1>Natasha Goenawan</h1>
-            <div class="status"></div>
             <nav>
-                <ul class="nav">
-                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('master');">Home</a></li>
-                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('about');">About</a></li>
-                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('research');">Research</a></li>
-                  <li class = "nav"><a class = "nav" href="#" onclick="return false;" onmousedown="smoothScroll('contact');">Contact</a></li>
+                <ul>
+                    <li><a class="show" id="bars"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('master');">Home</a></li>
+                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('about');">About</a></li>
+                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('research');">Research</a></li>
+                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('contact');">Contact</a></li>
+                    <li class="hide" ><a class="x-button" onclick="closeNav();"><i class="fa fa-times-circle" aria-hidden="true"></i></a></li>
                 </ul>
-            </nav>     
-        </header>        
+            </nav>   
+        </header>
         <section id="about">
             <h2>About</h2>
-                <img src="profile%20pic.jpg" alt="Me" style="float:left;height:250px;" class="profile">
-                <p class="pic">My first paragraph. I am trying to learn how to make a good website because
+                <img src="profile%20pic.jpg" alt="Me" class="profile">
+                <p>My first paragraph. I am trying to learn how to make a good website because
                 Stanford has website hosting and I want to use it because I've always wanted my own website xD.</p> 
-                <p class="pic">I am an undergraduate student (class of 2020) at Stanford University 
+                <p>I am an undergraduate student (class of 2020) at Stanford University 
                 majoring in computer science and bioengineering. Previously I attended the Kalamazoo
                 Area Math and Science Center and Kalamazoo Central High School. A list of things I plan to 
                 accomplish and/or just discovered:
                 </p>
-                <p class="pic">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="pic">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <ul class="pic">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <ul>
                     <li>Study Computer Science, Bioengineering, or premed</li>
                     <li>Just found out that making websites from scratch is complicated</li>
                     <li>I can make fluffy pancakes</li>
@@ -101,9 +103,10 @@
         </section>
         <footer>
             Copyright (c) 2016 by Natasha Goenawan. All rights reversed.
-            <button class="top" onclick="return false;" onmousedown="backSmoother('master')">Back to Top ^</button>
+            <button class="top" onclick="return false;" onmousedown="backSmoother('master')">Back to Top <i class="fa fa-arrow-circle-up" aria-hidden="true"></i></button>
         </footer>
         <!-- javascript stuff -->
+        <script type="text/javascript" src="jquery-3.0.0.js"></script>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
