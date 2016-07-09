@@ -1,13 +1,14 @@
+
 body{
     font-family: 'Roboto', sans-serif;
-    background-image: url("linen4.jpg");
+    background-image: url("mountain1.jpg");
+    background-size: cover;
     border-style:none;
     margin: auto;
-    width: 100%;
+    width: 100%;   
     
     /*ez noob parallax???? default: parallax on*/
     background-attachment: fixed;
-    
     text-justify: inter-word;
     text-align: justify;
 }
@@ -21,7 +22,8 @@ body{
    background-image: url("linen4.jpg");
 }
 .b2{
-   background-image: url("mountain.jpg");
+    background-image: url("mountain1.jpg");
+    background-size: cover;
 }
 .b3{
     background-image: url("sand1.jpg");
@@ -81,8 +83,10 @@ div#load_text{
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/*section stuff*/
 section{
-    background-color:whitesmoke;
+    background-color:rgba(255, 255, 255, 0.80);
     max-width: 1250px;
     font-size: 1em;
     /*give section shadows*/
@@ -90,23 +94,27 @@ section{
 }
 
 header{      
-    /*give section shadows*/
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
+}
+
+.no-shadow{
+    box-shadow: none;
 }
 h1{
-    background-color:dimgrey;
+    background-color: rgba(51, 51, 51, 0.79);
     color:white;
-    font-size: 3em;
+    font-size: 5.2em;
     font-weight: 100;
     border-style:none;
-    margin:auto;
-    padding: 10px;
+    margin:0;
+    padding: 25px 50px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 3.2px 3.2px 5px #000000;   
 }
 h2{
-    background-color:darkgray;
+    /*background-color:darkgray;*/
+    background-color: rgba(0, 0, 0, 0.40);
     border-style:none;
     padding: 8px 16px;
     font-size: 1.5em; 
@@ -115,8 +123,9 @@ h2{
 /*my profile pic*/
 img.profile{
     /*border: 7px solid rgb(105, 105, 105);*/
-    margin-left: 20px;
+    margin: 0px 20px;
     height: 15em;
+    float: left;
 }
 
 /*paragraph styling*/
@@ -126,11 +135,6 @@ p{
     border-style:none;
 }
 
-/*paragraph and list with the pic*/
-.pic{
-    overflow:auto;
-    word-wrap: break-word;
-}
 
 ul{
     padding-bottom: 20px;
@@ -165,42 +169,71 @@ a:active{
 }
 
 /*navigation bar*/
-li.nav{
+nav ul li{
     display: inline;
     float: left;
     font-size: 1.6em;
 }
-ul.nav {
+nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.82);
     position: static;
     text-shadow: 2.5px 2.5px 4px #000000;
 }
-a.nav{
+nav ul li a{
     display: block;
     text-align: center;
     padding: 10px 15px;
     text-decoration: none;
-    color:white;
     font-weight: 200;
+    margin:0;
 }
-a.nav:hover{
-    background-color: #111;
+.x-button{
+    float: left;
+    color: white;
+}
+.show{
+    color: white;
+}
+nav ul li a:link{
+    color: white;
+}
+nav ul li a:visited{
+    color: white;
+}
+nav ul li a:hover{
+    background-color: #000;
+    color: white;
     text-decoration:none;
     font-weight: 600;
     text-shadow: 0px 0px;
 }
-nav.fixed{
-    position:fixed;
-    top:0;
+nav ul li a:active{
+    text-decoration: none;
 }
+nav{
+    z-index: 100;
+    margin: 0;
+}
+.nav-placeholder{
+    margin: 0 0 25px 0;
+}
+.fixed{
+    position:fixed;
+    font-size: 0.7em;
+    top:0;
+    right:0;
+    width: 100%;
+}
+
 /*footer stuff*/
 footer{
     margin:10px 0px;
     padding: 5px 0px;
+    color: grey;
 }
 
 /*button stuff*/
@@ -221,10 +254,11 @@ button:hover{
     border-style:none;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
-
 footer{
-    font-size: 0.85em;
+    background-color: rgba(51, 51, 51, 0.79);
+    color:white;
     text-align: left;
+    padding: 5px;
 }
 /*back to top button*/
 button.top{
@@ -234,10 +268,15 @@ button.top{
     border-radius: 12px;
     margin: 0px;
     padding: 12px;
+    font-size: .85em;
 }
 button.top:hover{
     background-color: whitesmoke;
     color: #333;
     font-weight: 600;
+}
+
+i.fa fa-arrow-circle-up{
+    color:white;
 }
 
