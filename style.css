@@ -1,4 +1,3 @@
-
 body{
     font-family: 'Roboto', sans-serif;
     background-image: url("mountain1.jpg");
@@ -262,7 +261,7 @@ footer{
 }
 /*back to top button*/
 button.top{
-    background-color: #50687c;
+    background-color: rgba(144, 142, 142, 0.35);
     font-size:15px;
     font-weight: 500;
     border-radius: 12px;
@@ -274,12 +273,15 @@ button.top{
     font-size: .85em;
 }
 button.top:hover{
-    background-color: whitesmoke;
+    background-color: rgb(245, 245, 245);
     color: #333;
     font-weight: 600;
 }
 
 i.fa fa-arrow-circle-up{
+    color:white;
+}
+i.fa fa-copyright{
     color:white;
 }
 
