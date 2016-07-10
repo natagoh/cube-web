@@ -243,6 +243,15 @@ button.shrunk-nav-button:hover{
     font-weight: 600;
     text-shadow: 0px 0px;
 }
+
+span.hover{
+    display:none;
+}
+button.shrunk-nav-button:hover span.hover{
+    display:inline-block;
+    font-weight:100;
+    font-size: 0.8em;
+}
 /*footer stuff*/
 footer{
     margin:10px 0px;

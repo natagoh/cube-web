@@ -16,7 +16,7 @@ $(document).ready(function(){
             $(".x-button").hide();
             
             //if scroll above navOffset, reset to as if navbar not shrunk
-            if(scrollPos < navOffset) {
+            if(scrollPos < navOffset + $("nav").outerHeight()) {
                 isNavClosed = false;
             }
         }
