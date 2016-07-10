@@ -2,10 +2,8 @@ body{
     font-family: 'Roboto', sans-serif;
     background-image: url("mountain1.jpg");
     background-size: cover;
-    border-style:none;
-    margin: auto;
-    width: 80%;   
-    
+    border-style:none;     
+    margin:0;
     /*ez noob parallax???? default: parallax on*/
     background-attachment: fixed;
     text-justify: inter-word;
@@ -27,6 +25,255 @@ body{
 .b3{
     background-image: url("sand1.jpg");
     background-size: cover;
+}
+
+/*header*/
+header{      
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
+    width:80%;
+    margin:auto;
+}
+
+.no-shadow{
+    box-shadow: none;
+}
+h1{
+    background-color: rgba(51, 51, 51, 0.79);
+    color:white;
+    font-size: 5.2em;
+    font-weight: 100;
+    border-style:none;
+    margin:0;
+    padding: 25px 50px;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 3.2px 3.2px 5px #000000;   
+}
+h2{
+    background-color:rgba(128, 128, 128, 0.65);
+    /*background-color: rgba(0, 0, 0, 0.40);*/
+    border-style:none;
+    padding: 8px 16px;
+    font-size: 1.5em; 
+}
+
+/*main content*/
+div#main{
+    margin: auto;
+    width: 80%;
+}
+
+/*section stuff*/
+section{
+    background-color:rgba(255, 255, 255, 0.80);
+    max-width: 1250px;
+    font-size: 1em;
+    /*give section shadows*/
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
+}
+
+/*my profile pic*/
+img.profile{
+    /*border: 7px solid rgb(105, 105, 105);*/
+    margin: 0px 20px;
+    height: 15em;
+    float: left;
+}
+
+/*paragraph styling*/
+p{
+    border-style:none;
+    padding: 0px 20px 10px 20px;
+    border-style:none;
+}
+
+ul{
+    padding-bottom: 20px;
+    position:relative;
+    left: 20px;
+    margin:0;
+}
+ol{
+    padding-bottom: 20px;
+    position:relative;
+    left: 20px;
+    margin:0;
+}
+
+/*how url links work*/
+a:link{
+    color:blue;
+    font-weight:bold;
+    text-decoration:none;
+}
+a:visited{
+    color:blue;
+    text-decoration:none;
+}
+a:hover{
+    color:hotpink;
+    text-decoration: underline;
+}   
+a:active{
+    color:darkmagenta;
+    text-decoration: underline;
+}
+
+/*navigation bar*/
+nav{
+    z-index: 100;
+    margin: 0;
+}
+.nav-placeholder{
+    margin: 0 0 25px 0;
+}
+.fixed{
+    position:fixed;
+    font-size: 0.7em;
+    top:0;
+    right:0;
+    width: 100%;
+}
+nav ul li{
+    display: inline;
+    float: left;
+    font-size: 1.6em;
+    font-weight: 100;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.80);
+    position: static;
+    font-weight: 200;
+    text-shadow: 2.5px 2.5px 4px #000000;
+}
+nav ul li a{
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: 200;
+    margin:0;
+}
+.x-button{
+    float: left;
+    color: white;
+}
+nav ul li a:link{
+    color: white;
+}
+nav ul li a:visited{
+    color: white;
+}
+nav ul li a:hover{
+    background-color: #000;
+    color: white;
+    text-decoration:none;
+    text-shadow: 0px 0px;
+}
+nav ul li a:active{
+    text-decoration: none;
+}
+
+/*shrink button*/
+button.shrunk-nav-button{
+    background-color: rgba(0, 0, 0, 0.82);
+    position: fixed;
+    top:0;
+    left:0;
+    border-radius:0;
+    margin:0;
+    font-size: 1.5em;
+}
+button.shrunk-nav-button:hover{
+    border-radius:0;
+    background-color: #000;
+    color: white;
+    text-decoration:none;
+    text-shadow: 0px 0px;
+}
+
+span.hover{
+    display:none;
+}
+button.shrunk-nav-button:hover span.hover{
+    display:inline-block;
+    font-weight:100;
+    font-size: 0.8em;
+}
+
+/*button stuff*/
+button{
+    background-color: deepskyblue;
+    font-size:20px;
+    border-style:none;
+    padding:5px 10px;
+    border-radius: 6px;
+    color: white;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin: 10px;
+}
+button:hover{
+    background-color: white;
+    color: deepskyblue;
+    border-style:none;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/*footer stuff*/
+footer{
+    background-color: rgba(51, 51, 51, 0.79);
+    color:white;
+    text-align: center;
+    margin: 15px 0 0 0;
+    padding: 5px 10px;
+    margin-bottom:0;
+    right:0;
+    width: 100%;
+}
+footer ul{
+    padding-bottom: 0px;
+    position:static;
+    margin:0 0 5px 0;
+}
+footer ul li{
+    list-style-type: none;
+    display: inline;
+    margin: 0 10px;
+    font-size: 2em;
+}
+footer ul li a i{
+    margin:0;
+}
+footer ul li a i:hover{
+    color: rgba(51, 51, 51, 0.79);
+    background-color: white;
+}
+/*back to top button*/
+button.top{
+    background-color: rgba(144, 142, 142, 0.35);
+    font-size:15px;
+    font-weight: 500;
+    border-radius: 12px;
+    margin: 0px;
+    padding: 12px;
+    position:fixed;
+    left: 90.75%;
+    bottom: 14%;
+    font-size: .85em;
+}
+button.top:hover{
+    background-color: rgb(245, 245, 245);
+    color: #333;
+    font-weight: 600;
+}
+
+i{
+    color:white;
 }
 
 /*loading animation*/
@@ -81,227 +328,4 @@ div#load_text{
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-/*section stuff*/
-section{
-    background-color:rgba(255, 255, 255, 0.80);
-    max-width: 1250px;
-    font-size: 1em;
-    /*give section shadows*/
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
-}
-
-header{      
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
-}
-
-.no-shadow{
-    box-shadow: none;
-}
-h1{
-    background-color: rgba(51, 51, 51, 0.79);
-    color:white;
-    font-size: 5.2em;
-    font-weight: 100;
-    border-style:none;
-    margin:0;
-    padding: 25px 50px;
-    text-align: center;
-    text-transform: uppercase;
-    text-shadow: 3.2px 3.2px 5px #000000;   
-}
-h2{
-    background-color:rgba(128, 128, 128, 0.65);
-    /*background-color: rgba(0, 0, 0, 0.40);*/
-    border-style:none;
-    padding: 8px 16px;
-    font-size: 1.5em; 
-}
-
-/*my profile pic*/
-img.profile{
-    /*border: 7px solid rgb(105, 105, 105);*/
-    margin: 0px 20px;
-    height: 15em;
-    float: left;
-}
-
-/*paragraph styling*/
-p{
-    border-style:none;
-    padding: 0px 20px 10px 20px;
-    border-style:none;
-}
-
-
-ul{
-    padding-bottom: 20px;
-    position:relative;
-    left: 20px;
-    margin:0;
-}
-ol{
-    padding-bottom: 20px;
-    position:relative;
-    left: 20px;
-    margin:0;
-}
-}
-/*how url linnks work*/
-a:link{
-    color:blue;
-    font-weight:bold;
-    text-decoration:none;
-}
-a:visited{
-    color:blue;
-    text-decoration:none;
-}
-a:hover{
-    color:hotpink;
-    text-decoration: underline;
-}   
-a:active{
-    color:darkmagenta;
-    text-decoration: underline;
-}
-
-/*navigation bar*/
-nav{
-    z-index: 100;
-    margin: 0;
-}
-.nav-placeholder{
-    margin: 0 0 25px 0;
-}
-.fixed{
-    position:fixed;
-    font-size: 0.7em;
-    top:0;
-    right:0;
-    width: 100%;
-}
-nav ul li{
-    display: inline;
-    float: left;
-    font-size: 1.6em;
-}
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.82);
-    position: static;
-    text-shadow: 2.5px 2.5px 4px #000000;
-}
-nav ul li a{
-    display: block;
-    text-align: center;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-weight: 200;
-    margin:0;
-}
-.x-button{
-    float: left;
-    color: white;
-}
-nav ul li a:link{
-    color: white;
-}
-nav ul li a:visited{
-    color: white;
-}
-nav ul li a:hover{
-    background-color: #000;
-    color: white;
-    text-decoration:none;
-    font-weight: 600;
-    text-shadow: 0px 0px;
-}
-nav ul li a:active{
-    text-decoration: none;
-}
-
-/*shrink button*/
-button.shrunk-nav-button{
-    background-color: rgba(0, 0, 0, 0.82);
-    position: fixed;
-    top:0;
-    left:0;
-    border-radius:0;
-    margin:0;
-    font-size: 1.5em;
-}
-button.shrunk-nav-button:hover{
-    border-radius:0;
-    background-color: #000;
-    color: white;
-    text-decoration:none;
-    font-weight: 600;
-    text-shadow: 0px 0px;
-}
-
-span.hover{
-    display:none;
-}
-button.shrunk-nav-button:hover span.hover{
-    display:inline-block;
-    font-weight:100;
-    font-size: 0.8em;
-}
-/*footer stuff*/
-footer{
-    margin:10px 0px;
-    padding: 5px 0px;
-    color: grey;
-}
-
-/*button stuff*/
-button{
-    background-color: deepskyblue;
-    font-size:20px;
-    border-style:none;
-    padding:5px 10px;
-    border-radius: 6px;
-    color: white;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    margin: 10px;
-}
-button:hover{
-    background-color: white;
-    color: deepskyblue;
-    border-style:none;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
-footer{
-    background-color: rgba(51, 51, 51, 0.79);
-    color:white;
-    text-align: left;
-    padding: 5px;
-}
-/*back to top button*/
-button.top{
-    background-color: rgba(144, 142, 142, 0.35);
-    font-size:15px;
-    font-weight: 500;
-    border-radius: 12px;
-    margin: 0px;
-    padding: 12px;
-    position:fixed;
-    left: 90.75%;
-    bottom: 8%;
-    font-size: .85em;
-}
-button.top:hover{
-    background-color: rgb(245, 245, 245);
-    color: #333;
-    font-weight: 600;
-}
-
-i{
-    color:white;
 }
