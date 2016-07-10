@@ -5,10 +5,15 @@ $(document).ready(function(){
         }, 1500);
 })
 
+//home page
+$(document).ready(function(){
+    
+})
+
 //navigation bar stuff
-var navOffset = $("nav").offset().top;
 var isNavClosed = false;
 $(document).ready(function(){
+    var navOffset = $("nav").offset().top;
     $("nav").wrap('<div class="nav-placeholder"></div>');
     $(".nav-placeholder").height($("nav").outerHeight());
     $(".x-button").hide();
@@ -33,14 +38,14 @@ $(document).ready(function(){
         else{
             if(scrollPos >= navOffset){
                 $("nav").addClass("fixed");
-                $("header").addClass("no-shadow");
                 $(".x-button").show();
+                $("header").addClass("no-shadow");
             } 
             else{
                 $("nav").removeClass("fixed");
-                $("header").removeClass("no-shadow");
                 $(".x-button").hide();
                 $("#shrunk-nav").hide();
+                $("header").removeClass("no-shadow"); 
             }
         }
     })  
@@ -48,6 +53,7 @@ $(document).ready(function(){
 
 //close navigation tab
 function closeNav() {
+    var navOffset = $("nav").offset().top;
     closeNav;
     $("#shrunk-nav").show();
     isNavClosed=true;
