@@ -1,6 +1,6 @@
+//navigation bar stuff
 var navOffset = $("nav").offset().top;
 var isNavClosed = false;
-
 $(document).ready(function(){
     $("nav").wrap('<div class="nav-placeholder"></div>');
     $(".nav-placeholder").height($("nav").outerHeight());
