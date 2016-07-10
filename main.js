@@ -1,3 +1,10 @@
+//loading screen
+$(document).ready(function(){
+    setTimeout(function() {
+            document.getElementById("load_screen").className = "remove"; 
+        }, 1500);
+})
+
 //navigation bar stuff
 var navOffset = $("nav").offset().top;
 var isNavClosed = false;
