@@ -9,6 +9,7 @@ $(document).ready(function(){
     $("div#shrunk-nav").removeClass("float-with-nav");
     $(window).scroll(function() {
         var scrollPos = $(window).scrollTop();
+        
         //if nav bar is shrunk just do normal bar
         if(isNavClosed){
             $("nav").removeClass("fixed");
@@ -16,7 +17,8 @@ $(document).ready(function(){
             $(".x-button").hide();
             
             //if scroll above navOffset, reset to as if navbar not shrunk
-            if(scrollPos < navOffset + $("nav").outerHeight()) {
+            if(scrollPos < navOffset) {
+                $(".x-button").hide();
                 isNavClosed = false;
             }
         }
@@ -77,30 +79,10 @@ function b2() {
 function b3() {
     document.getElementById("master").className = "b3";
 }
-//smooth scroller
-var scrollY = 0;
-var distance = 40;
-function smoothScroll(el) {
-	var currentY = window.pageYOffset;
-	var targetY = document.getElementById(el).offsetTop;
-	var bodyHeight = document.body.offsetHeight;
-	var yPos = currentY + window.innerHeight;
-	var animator = setTimeout('smoothScroll(\''+el+'\')',22);
-	if(yPos > bodyHeight){
-		clearTimeout(animator);
-	} 
-    else {
-		if(currentY < targetY-distance){
-		    scrollY = currentY+distance;
-		    window.scroll(0, scrollY);
-	    } 
-        else {
-		    clearTimeout(animator);
-	    }
-	}
-}
 
 //back to top
+var scrollY = 0;
+var distance = 40;
 function backSmoother(target){
     var currentY = window.pageYOffset;
     var targetY = document.getElementById(target).offsetTop;
@@ -113,3 +95,16 @@ function backSmoother(target){
         clearTimeout(animator);
     }
 }
+
+//add smmoth scrolling to all links
+$(document).ready(function(){
+    $("a").on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            $('html, body').animate({scrollTop: $(hash).offset().top}, 800, function() {
+                window.location.hash = hash;
+            });
+        }
+    });
+});
