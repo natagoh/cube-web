@@ -24,14 +24,16 @@
             <h1>Natasha Goenawan</h1>
             <nav>
                 <ul>
-                    <li><a class="show" id="bars"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
-                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('master');">Home</a></li>
-                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('about');">About</a></li>
-                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('research');">Research</a></li>
-                    <li class="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('contact');">Contact</a></li>
-                    <li class="hide" ><a class="x-button" onclick="closeNav();"><i class="fa fa-times-circle" aria-hidden="true"></i></a></li>
+                    <li id="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('master');">Home</a></li>
+                    <li id="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('about');">About</a></li>
+                    <li id="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('research');">Research</a></li>
+                    <li id="hide" ><a href="#" onclick="return false;" onmousedown="smoothScroll('contact');">Contact</a></li>
+                    <li id="hide" ><a class="x-button" onclick="closeNav();"><i class="fa fa-times-circle" aria-hidden="true"></i></a></li>
                 </ul>
-            </nav>   
+            </nav> 
+            <div id="shrunk-nav">
+                <button class="shrunk-nav-button" onclick="openNav();">Menu <i class="fa fa-bars" aria-hidden="true"></i></button>
+            </div>
         </header>
         <section id="about">
             <h2>About</h2>

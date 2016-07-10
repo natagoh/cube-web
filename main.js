@@ -1,34 +1,60 @@
+var navOffset = $("nav").offset().top;
+var isNavClosed = false;
+
 $(document).ready(function(){
-    var navOffset = $("nav").offset().top;
     $("nav").wrap('<div class="nav-placeholder"></div>');
     $(".nav-placeholder").height($("nav").outerHeight());
-    $("nav").wrapInner('<div class="nav-inner"></div>');
     $(".x-button").hide();
-    $(".show").hide();
+    $("#shrunk-nav").hide();
+    $("div#shrunk-nav").removeClass("float-with-nav");
     $(window).scroll(function() {
-        var scrollPos = jQuery(window).scrollTop();
-        if(scrollPos >= navOffset){
-            $("nav").addClass("fixed");
-            $("header").addClass("no-shadow");
-            $(".x-button").show();
-        } 
-        else{
+        var scrollPos = $(window).scrollTop();
+        //if nav bar is shrunk just do normal bar
+        if(isNavClosed){
             $("nav").removeClass("fixed");
             $("header").removeClass("no-shadow");
             $(".x-button").hide();
+            
+            //if scroll above navOffset, reset to as if navbar not shrunk
+            if(scrollPos < navOffset) {
+                isNavClosed = false;
+            }
+        }
+        //do the normal sticky thingy
+        else{
+            if(scrollPos >= navOffset){
+                $("nav").addClass("fixed");
+                $("header").addClass("no-shadow");
+                $(".x-button").show();
+            } 
+            else{
+                $("nav").removeClass("fixed");
+                $("header").removeClass("no-shadow");
+                $(".x-button").hide();
+                $("#shrunk-nav").hide();
+            }
         }
     })  
 })
 
 //close navigation tab
 function closeNav() {
-    $("nav").css('visibility','hidden');
-    $("nav").removeClass("fixed");
-    var scrollPos = jQuery(window).scrollTop();
-    var navOffset = $("nav").offset().top;
+    closeNav;
+    $("#shrunk-nav").show();
+    isNavClosed=true;
+    var scrollPos = $(window).scrollTop();
     if(scrollPos >= navOffset){
-        $("nav").css('visibility','visible');
+        $("nav").removeClass("fixed");
     }
+}
+
+//open nav bar
+function openNav() {
+    $("#shrunk-nav").hide();
+    isNavClosed=false;
+    $("nav").addClass("fixed");
+    $("header").addClass("no-shadow");
+    $(".x-button").show();
 }
 
 //parallax on-off tester
