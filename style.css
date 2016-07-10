@@ -1,5 +1,5 @@
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Light', sans-serif;
     background-image: url("mountain1.jpg");
     background-size: cover;
     border-style:none;     
@@ -65,6 +65,7 @@ div#main{
 
 /*section stuff*/
 section{
+    font-family: 'Roboto Normal', sans-serif;
     background-color:rgba(255, 255, 255, 0.80);
     max-width: 1250px;
     font-size: 1em;
