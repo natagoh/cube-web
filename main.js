@@ -1,13 +1,16 @@
-//loading screen
+/*//loading screen lmao fake its actully just a timer xD
 $(document).ready(function(){
     setTimeout(function() {
             document.getElementById("load_screen").className = "remove"; 
         }, 1500);
-})
+})*/
 
-//home page
+//real loading screen
 $(document).ready(function(){
-    
+    window.addEventListener("load", function(){
+	   var load_screen = document.getElementById("load_screen");
+	   document.body.removeChild(load_screen);
+    });
 })
 
 //navigation bar stuff
