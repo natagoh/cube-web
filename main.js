@@ -14,7 +14,7 @@ $(document).ready(function(){
 })
 
 //ensures accurate info for nav bar stuff
-$( window ).resize(function() {
+$(window).resize(function() {
     location.reload();
 })
 
