@@ -4,6 +4,7 @@ body{
     background-size: cover;
     border-style:none;     
     margin:0;
+    
     /*ez noob parallax???? default: parallax on*/
     background-attachment: fixed;
     text-justify: inter-word;
@@ -132,8 +133,11 @@ a:active{
     .nav-placeholder{
         display:none;
     }
+    
+    /*responsive mobile menu*/
     #nav-alt{
         display:block;
+        overflow: hidden;
         background-color: rgba(0, 0, 0, 0.80);
         width: 100%;
         margin:0;
@@ -141,13 +145,23 @@ a:active{
     div#dropdown{
         display:none;
         overflow:auto;
+        position:absolute;
     }
     div#dropdown a{
         display:block;
         color:white;
         background-color: rgba(0, 0, 0, 0.80);
-        max-width: 30%;
         padding: 10px 15px;
+    }
+    div#dropdown a:hover{
+        background-color: black;
+        text-decoration:none;
+    }
+    button.shrunk-nav-button{
+        font-size: 2em;
+    }
+    button.shrunk-nav-button:hover{
+        box-shadow:none;
     }
     button.shrunk-nav-button:hover i{
         color:#333;
@@ -171,6 +185,9 @@ a:active{
     
     
     div#nav-alt{
+        display:none;
+    }
+    #dropdown{
         display:none;
     }
     /*navigation bar*/
