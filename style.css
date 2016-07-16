@@ -137,6 +137,9 @@ a:active{
     .nav-placeholder{
         display:none;
     }
+    #shrunk-nav{
+        display:none;
+    }
     #nav-alt{
         display:block;
         background-color: rgba(0, 0, 0, 0.80);
@@ -145,13 +148,12 @@ a:active{
     }
     div#dropdown{
         display:none;
-        overflow:auto;
+        position:absolute;
     }
     div#dropdown a{
         display:block;
         color:white;
         background-color: rgba(0, 0, 0, 0.80);
-        max-width: 30%;
         padding: 10px 15px;
     }
     button.shrunk-nav-button:hover i{
@@ -173,8 +175,9 @@ a:active{
         margin: auto;
         width: 80%;
     }
-    
-    
+    #dropdown{
+        display:none;
+    }
     div#nav-alt{
         display:none;
     }

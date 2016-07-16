@@ -14,7 +14,7 @@ $(document).ready(function(){
 })
 
 //ensures accurate info for nav bar stuff
-$(window).resize(function() {
+$( window ).resize(function() {
     location.reload();
 })
 
@@ -81,6 +81,10 @@ function openNav() {
     $("nav").addClass("fixed");
     $("header").addClass("no-shadow");
     $(".x-button").show();
+}
+//mobile navigation
+function openNav_phone(){
+    $("#dropdown").toggle();
 }
 
 //parallax on-off tester
