@@ -5,63 +5,61 @@ $(document).ready(function(){
         }, 1500);
 })*/
 
-//real loading screen 
-/*$(document).ready(function(){
+//real loading screen
+$(document).ready(function(){
     window.addEventListener("load", function(){
 	   var load_screen = document.getElementById("load_screen");
 	   document.body.removeChild(load_screen);
     });
 })
-*/
 
 //ensures accurate info for nav bar stuff
-/*
-$(window).resize(function() {
+$( window ).resize(function() {
     location.reload();
-})*/
+})
 
 //navigation bar stuff
 var isNavClosed = false;
 $(document).ready(function(){
+    var navOffset = $("nav").offset().top;
     $("nav").wrap('<div class="nav-placeholder"></div>');
+    $(".nav-placeholder").height($("nav").outerHeight());
     $(".x-button").hide();
     $("#shrunk-nav").hide();
     $("div#shrunk-nav").removeClass("float-with-nav");
-    $(window).resize(function(){
-        var navOffset = $("nav").offset().top;
-        $(".nav-placeholder").height($("nav").outerHeight());
-        $("nav-alt").height($("#shrunk-nav-button").outerHeight());
-        $(window).scroll(function() {
-            var scrollPos = $(window).scrollTop();
-
-            //if nav bar is shrunk just do normal bar
-            if(isNavClosed){
-                $("nav").removeClass("fixed");
-                $("header").removeClass("no-shadow");
+    
+    $("nav-alt").height($("#shrunk-nav-button").outerHeight());
+    
+    $(window).scroll(function() {
+        var scrollPos = $(window).scrollTop();
+        
+        //if nav bar is shrunk just do normal bar
+        if(isNavClosed){
+            $("nav").removeClass("fixed");
+            $("header").removeClass("no-shadow");
+            $(".x-button").hide();
+            
+            //if scroll above navOffset, reset to as if navbar not shrunk
+            if(scrollPos < navOffset) {
                 $(".x-button").hide();
-
-                //if scroll above navOffset, reset to as if navbar not shrunk
-                if(scrollPos < navOffset) {
-                    $(".x-button").hide();
-                    isNavClosed = false;
-                }
+                isNavClosed = false;
             }
-            //do the normal sticky thingy
+        }
+        //do the normal sticky thingy
+        else{
+            if(scrollPos >= navOffset){
+                $("nav").addClass("fixed");
+                $(".x-button").show();
+                $("header").addClass("no-shadow");
+            } 
             else{
-                if(scrollPos >= navOffset){
-                    $("nav").addClass("fixed");
-                    $(".x-button").show();
-                    $("header").addClass("no-shadow");
-                } 
-                else{
-                    $("nav").removeClass("fixed");
-                    $(".x-button").hide();
-                    $("#shrunk-nav").hide();
-                    $("header").removeClass("no-shadow"); 
-                }
+                $("nav").removeClass("fixed");
+                $(".x-button").hide();
+                $("#shrunk-nav").hide();
+                $("header").removeClass("no-shadow"); 
             }
-        }) 
-    })
+        }
+    })  
 })
 
 //close navigation tab
@@ -84,14 +82,6 @@ function openNav() {
     $("header").addClass("no-shadow");
     $(".x-button").show();
 }
-
-//mobile navigation
-function openNav_phone(){
-    $("#dropdown").toggle();
-}
-$(document).click( function(){
-    $("dropdown").hide();
-})
 
 //parallax on-off tester
 function parallaxOn() {
