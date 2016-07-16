@@ -13,6 +13,11 @@ $(document).ready(function(){
     });
 })
 
+//ensures accurate info for nav bar stuff
+$( window ).resize(function() {
+    location.reload();
+})
+
 //navigation bar stuff
 var isNavClosed = false;
 $(document).ready(function(){
@@ -22,6 +27,9 @@ $(document).ready(function(){
     $(".x-button").hide();
     $("#shrunk-nav").hide();
     $("div#shrunk-nav").removeClass("float-with-nav");
+    
+    $("nav-alt").height($("#shrunk-nav-button").outerHeight());
+    
     $(window).scroll(function() {
         var scrollPos = $(window).scrollTop();
         
@@ -124,3 +132,13 @@ $(document).ready(function(){
         }
     });
 });
+
+/*media query
+$(window).resize(function(){
+	if ($(window).width() <= 667){	
+		$("nav").detach();
+	}	
+    else{
+        $("nav").appendTo("#nav-space");
+    }
+});*/
