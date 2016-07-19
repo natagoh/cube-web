@@ -22,17 +22,18 @@ $( window ).resize(function() {
 //navigation bar stuff
 var isNavClosed = false;
 $(document).ready(function(){
-    var navOffset = $("nav").offset().top;
-    $("nav").wrap('<div class="nav-placeholder"></div>');
-    $(".nav-placeholder").height($("nav").outerHeight());
     $(".x-button").hide();
     $("#shrunk-nav").hide();
     $("div#shrunk-nav").removeClass("float-with-nav");
-    
+    $("#splash").height($(window).height());
     $("nav-alt").height($("#shrunk-nav-button").outerHeight());
     
+    var $nav = $("nav");
+    var navOffset = $nav.offset().top;
+    $nav.wrap('<div class="nav-placeholder"></div>');
+    $(".nav-placeholder").height($nav.outerHeight());
     $(window).scroll(function() {
-        var scrollPos = $(window).scrollTop();
+        var scrollPos = $(this).scrollTop();
         
         //if nav bar is shrunk just do normal bar
         if(isNavClosed){
@@ -49,12 +50,12 @@ $(document).ready(function(){
         //do the normal sticky thingy
         else{
             if(scrollPos >= navOffset){
-                $("nav").addClass("fixed");
+                $nav.addClass("fixed");
                 $(".x-button").show();
                 $("header").addClass("no-shadow");
             } 
             else{
-                $("nav").removeClass("fixed");
+                $nav.removeClass("fixed");
                 $(".x-button").hide();
                 $("#shrunk-nav").hide();
                 $("header").removeClass("no-shadow"); 
@@ -138,6 +139,18 @@ $(document).ready(function(){
     });
 });
 
+//splash screen
+$(document).ready(function(){
+    $("h1").mouseover(function(){
+        $("h1").css("display", "none");
+        $(".explore").css("display", "block");
+        $(".explore").height($("h1").innerHeight());
+    });
+    $("h1").mouseout(function(){
+        $("h1").css("display", "block");
+        $(".explore").css("display", "none");
+    });
+});
 /*media query
 $(window).resize(function(){
 	if ($(window).width() <= 667){	

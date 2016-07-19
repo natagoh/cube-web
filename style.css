@@ -5,6 +5,7 @@ html{
 body{
     font-family: 'Roboto Light', sans-serif;
     background-image: url("mountain1.jpg");
+    width:100%;
     background-size: cover;
     border-style:none;     
     margin:0;
@@ -33,21 +34,67 @@ body{
 }
 
 /*header*/
+#splash{
+    width:100%;
+    left:0;
+    top:0;
+    text-align: center;
+    background-color: rgba(113, 113, 113, 0.62); 
+}
+#splash:before{
+    background-image:url(mountain1.jpg);
+    background-size: cover;
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    top: 0; right: 0; left: 0;
+    
+    filter: blur(5px); 
+    -webkit-filter: blur(7px); 
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px); 
+    -ms-filter: blur(7px);
+    filter: url(blur.svg#blur);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='7');
+}
+
 header{      
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 24px 0 rgba(0, 0, 0, 0.4);
+   /* box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 24px 0 rgba(0, 0, 0, 0.4);*/
 }
 
 h1{
-    background-color: rgba(51, 51, 51, 0.79);
+    font-family: 'Roboto Mono';
+    /*background-color: rgba(51, 51, 51, 0.79);*/
     color:white;
-    font-size: 5.2em;
-    font-weight: 100;
-    border-style:none;
-    margin:0;
-    padding: 25px 50px;
+    font-size: 6.5em;
+    font-weight: 300;
+    border: solid white 5px;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 3.2px 3.2px 5px #000000;   
+
+    width: 400px;
+    /*text-shadow: 3.2px 3.2px 5px #000000;   */
+    margin:auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.surname{
+    color:black;
+}
+.explore{
+    font-weight:100;
+    font-size: 5em;
+    width: 400px;
+    display:none;
+    color:black;
+}
+.explore i{
+    color:black;
+}
+h1:hover{
+    background-color:white;
 }
 h2{
     background-color:rgba(128, 128, 128, 0.65);
@@ -165,7 +212,7 @@ a:active{
 @media only screen and (min-width: 668px) {
     header{
         margin:auto;
-        width:80%;
+        width:100%;
     }
     header.no-shadow{
         box-shadow: none;
@@ -178,6 +225,7 @@ a:active{
     #dropdown{
         display:none;
     }
+    
     div#nav-alt{
         display:none;
     }
