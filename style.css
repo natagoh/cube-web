@@ -90,6 +90,19 @@ h1{
     display:none;
     color:black;
 }
+h1.explore a{
+    color:black;
+    font-weight:100;
+    font-size: 1em;
+    display:block;
+}
+h1.explore a:hover{
+    text-decoration:none;
+}
+h1.explore:active{
+    background-color: grey;
+    border: grey;
+}
 .explore i{
     color:black;
 }

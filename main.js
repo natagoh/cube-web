@@ -141,6 +141,7 @@ $(document).ready(function(){
 
 //splash screen
 $(document).ready(function(){
+    $("h1.explore a").height($("h1").outerHeight());
     $("h1").mouseover(function(){
         $("h1").css("display", "none");
         $(".explore").css("display", "block");
@@ -151,6 +152,7 @@ $(document).ready(function(){
         $(".explore").css("display", "none");
     });
 });
+
 /*media query
 $(window).resize(function(){
 	if ($(window).width() <= 667){	
