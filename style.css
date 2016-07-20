@@ -6,6 +6,8 @@ body{
     font-family: 'Roboto Light', sans-serif;
     background-image: url("mountain1.jpg");
     width:100%;
+    height: 100%;
+    top: 0; right: 0; left: 0;
     background-size: cover;
     border-style:none;     
     margin:0;
@@ -14,6 +16,7 @@ body{
     background-attachment: fixed;
     text-justify: inter-word;
     text-align: justify;
+    position:relative;
 }
 .parallaxOn{
     background-attachment: fixed;
@@ -36,29 +39,31 @@ body{
 /*header*/
 #splash{
     width:100%;
+    height: 100%;
     left:0;
     top:0;
     text-align: center;
-    background-color: rgba(113, 113, 113, 0.62); 
+    background-color: rgba(88, 88, 88, 0.67); 
+    z-index:2;
 }
-#splash:before{
-    background-image:url(mountain1.jpg);
+#splash:before{ 
     background-size: cover;
     content: '';
     position: absolute;
     z-index: -1;
+    width:100%;
     height: 100%;
     top: 0; right: 0; left: 0;
     
+    background-image:url(mountain1.jpg);
     filter: blur(5px); 
-    -webkit-filter: blur(7px); 
-    -moz-filter: blur(7px);
-    -o-filter: blur(7px); 
-    -ms-filter: blur(7px);
+    -webkit-filter: blur(5px); 
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px); 
+    -ms-filter: blur(5px);
     filter: url(blur.svg#blur);
-    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='7');
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='5');
 }
-
 header{      
    /* box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5), 0 10px 24px 0 rgba(0, 0, 0, 0.4);*/
 }
@@ -84,7 +89,7 @@ h1{
     color:black;
 }
 .explore{
-    font-weight:100;
+    font-weight:300;
     font-size: 5em;
     width: 400px;
     display:none;
@@ -92,7 +97,7 @@ h1{
 }
 h1.explore a{
     color:black;
-    font-weight:100;
+    font-weight:300;
     font-size: 1em;
     display:block;
 }

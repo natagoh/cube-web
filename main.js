@@ -22,6 +22,7 @@ $( window ).resize(function() {
 //navigation bar stuff
 var isNavClosed = false;
 $(document).ready(function(){
+    $(".top").css("display","none");
     $(".x-button").hide();
     $("#shrunk-nav").hide();
     $("div#shrunk-nav").removeClass("float-with-nav");
@@ -45,6 +46,7 @@ $(document).ready(function(){
             if(scrollPos < navOffset) {
                 $(".x-button").hide();
                 isNavClosed = false;
+                $(".top").css("display","none");
             }
         }
         //do the normal sticky thingy
@@ -53,12 +55,17 @@ $(document).ready(function(){
                 $nav.addClass("fixed");
                 $(".x-button").show();
                 $("header").addClass("no-shadow");
+                $(".top").css("display","block");
+                if(scrollPos == navOffset){
+                    $(".top").css("display","none");
+                }
             } 
             else{
                 $nav.removeClass("fixed");
                 $(".x-button").hide();
                 $("#shrunk-nav").hide();
                 $("header").removeClass("no-shadow"); 
+                $(".top").css("display","none");
             }
         }
     })  
@@ -153,6 +160,12 @@ $(document).ready(function(){
     });
 });
 
+//splash screen scroll up no more blur
+$(document).ready(function(){
+    $(window).scroll(function(){
+        
+    });
+});
 /*media query
 $(window).resize(function(){
 	if ($(window).width() <= 667){	
