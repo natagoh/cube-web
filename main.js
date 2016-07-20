@@ -14,11 +14,10 @@ $(document).ready(function(){
 })
 
 //ensures accurate info for nav bar stuff
-/*
 $( window ).resize(function() {
     location.reload();
 })
-*/
+
 //navigation bar stuff
 var isNavClosed = false;
 $(document).ready(function(){
