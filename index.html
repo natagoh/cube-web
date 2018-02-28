@@ -13,12 +13,13 @@
 		<object id="canvas" type="image/svg+xml" data="img/wire_logo.svg" width="400"></object>
 
 		<script>
-		  new Vivus('logo', {
+		  var logo = new Vivus('logo', {
 		  	start: 'autostart', 
 		  	type: 'oneByOne', 
 		  	duration: 250,
 		  	animTimingFunction: Vivus.EASE
 		  });
+		  console.table(logo.map);
 		</script>
 
 	</body>
