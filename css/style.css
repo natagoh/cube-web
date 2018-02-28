@@ -1,0 +1,10 @@
+/* grid dot */
+body {
+  background: rgba(19, 17, 24, 1);
+  background-image: radial-gradient(rgba(84, 83, 86, 1) 5%, transparent 0);
+  background-size: 30px 30px;
+}
+
+.center {
+    margin: auto;
+}

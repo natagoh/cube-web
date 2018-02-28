@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.3/vivus.js"></script>
+	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.3/vivus.js"></script>
+	  	<link rel="stylesheet" href="css/style.css">
+	</head>
+
 	<body>
-
-		<h1>My First Heading</h1>
-
-		<p>My first paragraph.</p>
-		<img src="img/logo.svg" alt="logo" width="400">
-		<svg id="logo" width="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145.5 167.72"><defs><style>.cls-1{fill:none;stroke:#fcbb38;stroke-miterlimit:10;}</style></defs><title>Asset 8</title><g id="Layer_2" data-name="Layer 2"><g id="grid"><polygon class="cls-1" points="73 166.86 73 83.72 1 42.15 1 125.29 18.76 135.54 19 73.33 55 94.11 55 156.46 73 166.86"/><polyline class="cls-1" points="18.76 135.54 37 125.29 36.58 83.47"/><polygon class="cls-1" points="73 0.58 1 42.15 73 83.72 73 166.86 145 125.29 145 42.15 127 31.75 91 52.54 109 62.93 109 83.47 127 73.32 127 114.89 91 135.68 91 114.89 91 73.32 37 42.15 91 10.97 73 0.58"/><polyline class="cls-1" points="54.5 52.1 91 31.76 91 10.97"/><polyline class="cls-1" points="127 114.89 109 104.5 91 114.89"/><polyline class="cls-1" points="109 104.5 109 83.47 91 73.32 91 52.54"/><line class="cls-1" x1="109" y1="62.93" x2="145" y2="42.15"/><line class="cls-1" x1="73" y1="83.72" x2="91" y2="73.32"/></g></g></svg>
+		<center>
+			<!–– <img src="img/logo.svg" alt="logo" width="400"> -->
+			<svg id="logo" width="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145.5 167.72"><defs><style>.cls-1{fill:none;stroke:#fcbb38;stroke-miterlimit:10;}</style></defs><title>Asset 8</title><g id="Layer_2" data-name="Layer 2"><g id="grid"><polygon class="cls-1" points="73 166.86 73 83.72 1 42.15 1 125.29 18.76 135.54 19 73.33 55 94.11 55 156.46 73 166.86"/><polyline class="cls-1" points="18.76 135.54 37 125.29 36.58 83.47"/><polygon class="cls-1" points="73 0.58 1 42.15 73 83.72 73 166.86 145 125.29 145 42.15 127 31.75 91 52.54 109 62.93 109 83.47 127 73.32 127 114.89 91 135.68 91 114.89 91 73.32 37 42.15 91 10.97 73 0.58"/><polyline class="cls-1" points="54.5 52.1 91 31.76 91 10.97"/><polyline class="cls-1" points="127 114.89 109 104.5 91 114.89"/><polyline class="cls-1" points="109 104.5 109 83.47 91 73.32 91 52.54"/><line class="cls-1" x1="109" y1="62.93" x2="145" y2="42.15"/><line class="cls-1" x1="73" y1="83.72" x2="91" y2="73.32"/></g></g></svg>
 
 
-		<object id="canvas" type="image/svg+xml" data="img/wire_logo.svg" width="400"></object>
-
-		<script>
-		  var logo = new Vivus('logo', {
-		  	start: 'autostart', 
-		  	type: 'oneByOne', 
-		  	duration: 250,
-		  	animTimingFunction: Vivus.EASE
-		  });
-		  console.table(logo.map);
-		</script>
+			<script>
+			  var logo = new Vivus('logo', {
+			  	start: 'autostart', 
+			  	type: 'oneByOne', 
+			  	duration: 250,
+			  	animTimingFunction: Vivus.EASE
+			  });
+			  console.table(logo.map);
+			</script>
+		</center>
 
 	</body>
 </html>
+
+
