@@ -8,3 +8,7 @@ body {
 .center {
     margin: auto;
 }
+
+.container {
+  display: flex; /* or inline-flex */
+}
