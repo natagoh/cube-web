@@ -1,15 +1,22 @@
 /* grid dot */
 body {
-  background: rgba(19, 17, 24, 1);
-  background-image: radial-gradient(rgba(84, 83, 86, 1) 5%, transparent 0);
-  background-size: 30px 30px;
+	background: rgba(19, 17, 24, 1);
+	background-image: radial-gradient(rgba(84, 83, 86, 1) 5%, transparent 0);
+	background-size: 30px 30px;
+	margin: 0;
 }
 
-.center {
-    margin: auto;
+.splash-container {
+  	display: flex; 
+  	justify-content: center;
 }
 
-.container {
-  display: flex; /* or inline-flex */
-  margin: auto;
+.splash {
+  	width: 900px;
+  	display: flex;
+  	justify-content: space-around;
+}
+
+.name{
+	color: white;
 }

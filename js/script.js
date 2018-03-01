@@ -1,7 +1,5 @@
 // animate logo
-// async
-// delayed
-// oneByOne
+// options: async, delayed, oneByOne
 var logo = new Vivus('logo', {
   	start: 'autostart', 
   	type: 'oneByOne', 
@@ -12,6 +10,7 @@ var logo = new Vivus('logo', {
 // debug
 // console.table(logo.map);
 
+// fill in logo with color
 function fill() {
 	// fill logo
 	var light = document.getElementsByClassName('cls-1 light');
