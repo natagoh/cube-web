@@ -11,4 +11,5 @@ body {
 
 .container {
   display: flex; /* or inline-flex */
+  margin: auto;
 }
