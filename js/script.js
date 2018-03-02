@@ -1,33 +1,40 @@
 // initialize cube
 var cubeSetup = function() {
-	var w = window.innerWidth/2;
-	var h = window.innerHeight/2;
+	var w = window.innerWidth;
+	var h = window.innerHeight;
 	console.log(w + " " + h)
 
-
-	// set the perspective
-
-	// set the scene
-	// document.getElementById("viewbox").style.webkitPerspective = w*4 + "px";
-	// document.getElementById("viewbox").style.perspectiveOrigin = w + "px" + "50%";
-
-	// set perspective
+	// set scene
 	document.getElementById("scene").style.width = w + "px";
 	document.getElementById("scene").style.height = h + "px";
 
-	// set the sizes of the cube 
-	document.getElementById("cube").style.height = h + "px";
+	// set cube
+	/*
+	 .cube {
+	  position: relative;
+	  width: 1200px;
+	  height: 600px;
+	  transform: perspective(4800px) translateZ(-600px);
+	}
+	*/
 	document.getElementById("cube").style.width = w + "px";
-	document.getElementById("cube").style.transform = "perspective(" + w*4 + "px)";
+	document.getElementById("cube").style.height = h + "px";
+	document.getElementById("cube").style.webkitTransform = "perspective(" + w*4 + "px)";
 	document.getElementById("cube").style.webkitTransform = "translateZ(" + (-1*w/2) + "px)";
 
 	// set the size of the faces
+	/* 
+		width: 1200px;
+	  	height: 600px;
+	  	transform-origin: 50% 50% -300px;
+	  	transform: perspective(4800px)
+  	*/
 	var faces = document.getElementById("cube").getElementsByClassName('face');
 	for (i = 0; i < faces.length; i++) {
-		faces[i].style.height = h + "px";
 		faces[i].style.width = w + "px";
+		faces[i].style.height = h + "px";
 		faces[i].style.transform = "perspective(" + w*4 + "px)";
-		faces[i].style.transform = "transformOrigin(50% 50% " + -1*h/2 + "px)";
+		faces[i].style.transformOrigin = "50 50 " + -1*h/2 + "px";
 	}
 
 }
@@ -71,3 +78,23 @@ document.addEventListener('keydown', function(e) {
 
   document.getElementById("cube").style.webkitTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
 }, false);
+
+
+function rotateScenes(){
+  var scroll = window.pageYOffset,
+      relPos = scroll / height,
+      angle = 90 * relPos;
+  
+  if(scroll >= height){
+    section1.style.transform = "rotateX(90deg)";
+    section2.style.transform = "rotateX(0deg)";
+  }
+  
+  section1.style.transform = "rotateX(" + (angle) + "deg)";
+  section2.style.transform = "rotateX(-" + (90 - angle) + "deg)";
+}
+
+var section1 = document.querySelector("#top"),
+    section2 = document.querySelector("#content"),
+    height = window.innerHeight;
+window.addEventListener("scroll", rotateScenes);
