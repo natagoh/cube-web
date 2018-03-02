@@ -1,20 +1,24 @@
 .scene {
-  width: 600px;
+  width: 1200px;
   height: 600px;
   margin: 75px auto 0;
 }
 
 .cube {
   position: relative;
-  width: 600px;
-  height: 300px;
-  transform: perspective(2400px) translateZ(-300px);
+  width: 1200px;
+  height: 600px;
+  transform: perspective(4800px) translateZ(-600px);
 }
 
-.side {
+.face {
   position: absolute;
-  width: 600px;
-  height: 300px;
+  width: 1200px;
+  height: 600px;
+  transform-origin: 50% 50% -300px;
+  transform: perspective(4800px)
+  backface-visibility: hidden;
+  
   box-sizing: border-box;
   background-color: #999;
   background-size: 100% 100%;
@@ -24,10 +28,6 @@
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-  transform-origin: 50% 50% -150px;
-  backface-visibility: hidden;
-  
-  transform: perspective(2400px)
 }
 
 .back {
