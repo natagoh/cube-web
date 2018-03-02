@@ -32,3 +32,23 @@ function fill() {
 		dark[i].style.stroke = 'none';
 	}
 }
+
+// centering splash logo and intro
+var center = function() {
+	var divHeight = document.getElementById("splash-container").clientHeight;
+	var windowHeight = window.innerHeight;
+	var offset = (windowHeight - divHeight)/2 + "px";
+	document.getElementById("splash-container").style.marginTop = offset;
+}
+
+if ( document.readyState === "complete" || ( document.readyState !== "loading" && !document.documentElement.doScroll )) {
+	center();
+} else {
+	document.addEventListener("DOMContentLoaded", center);
+}
+
+// handle resize
+window.onresize = function(event) {
+	center();
+};
+
