@@ -5,10 +5,16 @@ var logo = new Vivus('logo', {
   	type: 'oneByOne', 
   	duration: 250,
   	animTimingFunction: Vivus.EASE
-}, fill)
+}, fillupdate)
 
 // debug
 // console.table(logo.map);
+
+// fills and updates more text
+function fillupdate() {
+	fill();
+	document.getElementById("about").style.visibility = "visible";
+}
 
 // fill in logo with color
 function fill() {

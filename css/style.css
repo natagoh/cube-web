@@ -24,21 +24,24 @@ body {
   	display: flex; 
   	justify-content: center;
  	align-items: center;
+ 	flex-wrap: wrap;
 }
 
 .splash {
   	display: flex;
   	justify-content: space-around;
+  	padding-right: 100px;
 }
 
-.name{
+#about{
+	visibility: hidden;
 	color: white;
 	font-family: 'Amatic SC', cursive;
 	font-weight: normal;
 	font-style: normal;
 }
 
-.name ul {
+#about ul {
 	list-style-type: none;
 }
 
