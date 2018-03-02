@@ -1,26 +1,25 @@
-.scene {
+#scene {
   width: 1200px;
   height: 600px;
   margin: 75px auto 0;
+  perspective: 1200px;
 }
 
-.cube {
+#cube {
   position: relative;
   width: 1200px;
   height: 600px;
-  transform: perspective(4800px) translateZ(-600px);
+  transform-style: preserve-3d;
+  transform: translateZ(-300px) rotateX(0deg);
+  animation: example 15s linear infinite;
 }
 
-.face {
+.side {
   position: absolute;
   width: 1200px;
   height: 600px;
-  transform-origin: 50% 50% -300px;
-  transform: perspective(4800px)
-  backface-visibility: hidden;
-  
   box-sizing: border-box;
-  background-color: #999;
+  background-color:rgba(0, 0, 0, 0.15);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 120px 0;
@@ -30,65 +29,31 @@
   text-align: center;
 }
 
+.side span {
+  position: relative;
+}
+
 .back {
-  transform: rotateX(0deg) rotateY(180deg);
-  animation: back 15s infinite linear;
+  transform: translateZ(-300px) rotateX(180deg);
 }
 .top {
-  transform: rotateX(90deg);
-  animation: top 15s infinite linear;
+  transform: translateY(-300px) rotateX(90deg);
 }
 .bottom {
-  transform: rotateX(-90deg);
-  animation: bottom 15s infinite linear;
+  transform: translateY(300px) rotateX(270deg);
 }
 .front {
-  transform: rotateX(0deg) ;
-  animation: front 15s infinite linear;
+  transform: translateZ(300px);
 }
 
-
-@keyframes top {
-	0% { transform:perspective(1200px) rotateX(90deg); }
-  15% { transform: perspective(1200px) rotateX(180deg); }
-	25% { transform: perspective(1200px) rotateX(180deg); }
-	40% { transform: perspective(1200px) rotateX(270deg); }
-	50% { transform: perspective(1200px) rotateX(270deg); }
-	65% { transform: perspective(1200px) rotateX(360deg); }
-	75% { transform: perspective(1200px) rotateX(360deg); }
-	90% { transform: perspective(1200px) rotateX(450deg); }
-	100% { transform:perspective(1200px) rotateX(450deg); }
-}
-@keyframes bottom {
-	0% { transform:perspective(1200px)  rotateX(-90deg); }
-  15% { transform: perspective(1200px) rotateX(0deg); }
-	25% { transform: perspective(1200px) rotateX(0deg); }
-	40% { transform: perspective(1200px) rotateX(90deg); }
-	50% { transform: perspective(1200px) rotateX(90deg); }
-	65% { transform: perspective(1200px) rotateX(180deg); }
-	75% { transform: perspective(1200px) rotateX(180deg); }
-	90% { transform: perspective(1200px) rotateX(270deg); }
-	100% { transform:perspective(1200px) rotateX(270deg); }
-}
-@keyframes front {
-	0% { transform: perspective(1200px) rotateX(0deg); }
-  15% { transform: perspective(1200px) rotateX(90deg); }
-	25% { transform: perspective(1200px) rotateX(90deg); }
-	40% { transform: perspective(1200px) rotateX(180deg); }
-	50% { transform: perspective(1200px) rotateX(180deg); }
-	65% { transform: perspective(1200px) rotateX(270deg); }
-	75% { transform: perspective(1200px) rotateX(270deg); }
-	90% { transform: perspective(1200px) rotateX(360deg); }
-	100% { transform: perspective(1200px) rotateX(360deg); }
-}
-@keyframes back {
-	0% { transform:perspective(1200px) rotateX(0deg) rotateY(180deg) rotateZ(180deg); }
-  15% { transform: perspective(1200px) rotateX(90deg) rotateY(180deg) rotateZ(180deg); }
-	25% { transform: perspective(1200px) rotateX(90deg) rotateY(180deg) rotateZ(180deg); }
-	40% { transform: perspective(1200px) rotateX(180deg) rotateY(180deg) rotateZ(180deg); }
-	50% { transform: perspective(1200px) rotateX(180deg) rotateY(180deg) rotateZ(180deg); }
-	65% { transform: perspective(1200px) rotateX(270deg) rotateY(180deg) rotateZ(180deg); }
-	75% { transform: perspective(1200px) rotateX(270deg) rotateY(180deg) rotateZ(180deg); }
-	90% { transform: perspective(1200px) rotateX(360deg) rotateY(180deg) rotateZ(180deg); }
-	100% { transform:perspective(1200px) rotateX(360deg) rotateY(180deg) rotateZ(180deg); }
+@keyframes example {
+  0% { transform: translateZ(-300px) rotateX(0deg); }
+  15% { transform: translateZ(-300px) rotateX(90deg); }
+  25% { transform: translateZ(-300px) rotateX(90deg); }
+  40% { transform: translateZ(-300px) rotateX(180deg); }
+  50% { transform: translateZ(-300px) rotateX(180deg); }
+  65% { transform: translateZ(-300px) rotateX(270deg); }
+  75% { transform: translateZ(-300px) rotateX(270deg); }
+  90% { transform: translateZ(-300px) rotateX(360deg); }
+  100% { transform: translateZ(-300px) rotateX(360deg); }
 }
