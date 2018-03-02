@@ -1,33 +1,20 @@
-/* grid dot */
-body {
-	background: rgba(19, 17, 24, 1);
-	background-image: radial-gradient(rgba(84, 83, 86, 1) 5%, transparent 0);
-	background-size: 30px 30px;
-	margin: 0;
-}
-
 .scene {
   width: 600px;
   height: 600px;
   margin: 75px auto 0;
 }
 
-#cube {
+.cube {
   position: relative;
   width: 600px;
   height: 300px;
   transform: perspective(2400px) translateZ(-300px);
 }
 
-.face {
+.side {
   position: absolute;
   width: 600px;
   height: 300px;
-  transform-origin: 50% 50% -150px;
-  transform: perspective(1200px);
-
-  backface-visibility: hidden;
-
   box-sizing: border-box;
   background-color: #999;
   background-size: 100% 100%;
@@ -37,6 +24,10 @@ body {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
+  transform-origin: 50% 50% -150px;
+  backface-visibility: hidden;
+  
+  transform: perspective(2400px)
 }
 
 .back {
@@ -56,9 +47,10 @@ body {
   animation: front 15s infinite linear;
 }
 
+
 @keyframes top {
 	0% { transform:perspective(1200px) rotateX(90deg); }
-  	15% { transform: perspective(1200px) rotateX(180deg); }
+  15% { transform: perspective(1200px) rotateX(180deg); }
 	25% { transform: perspective(1200px) rotateX(180deg); }
 	40% { transform: perspective(1200px) rotateX(270deg); }
 	50% { transform: perspective(1200px) rotateX(270deg); }
