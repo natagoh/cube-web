@@ -44,6 +44,8 @@ var cubeSetup = function() {
 	var w = window.innerWidth;
 	var h = window.innerHeight;
 
+	var offset = h/2;
+
 	// set the perspective
 	document.getElementById("viewbox").style.webkitPerspective = w*4 + "px";
 	document.getElementById("viewbox").style.perspectiveOrigin = w + "px" + "50%";
@@ -57,6 +59,9 @@ var cubeSetup = function() {
 	for (i = 0; i < faces.length; i++) {
 		faces[i].style.height = h + "px";
 		faces[i].style.width = w + "px";
+
+		// set rotations
+		//faces[i].style.webkitTransform = "translateZ(" + offset + "px)";
 	}
 
 }

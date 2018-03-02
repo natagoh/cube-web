@@ -67,27 +67,27 @@ body {
   background-color: rgba(50, 50, 50, 0.7);
 }
 
-#cube div:nth-child(1)  {
+#cube .face:nth-child(1)  {
   -webkit-transform: rotateX(90deg) translateZ(400px);
 }
 
-#cube div:nth-child(2) {
+#cube .face:nth-child(2) {
   -webkit-transform: translateZ(400px);
 }
 
-#cube div:nth-child(3) {
+#cube .face:nth-child(3) {
   -webkit-transform: rotateY(90deg) translateZ(400px);
 }
 
-#cube div:nth-child(4) {
+#cube .face:nth-child(4) {
   -webkit-transform: rotateY(180deg) translateZ(400px);
 }
 
-#cube div:nth-child(5) {
+#cube .face:nth-child(5) {
   -webkit-transform: rotateY(-90deg) translateZ(400px);
 }
 
-#cube div:nth-child(6) {
+#cube .face:nth-child(6) {
   -webkit-transform: rotateX(-90deg) translateZ(400px) rotate(180deg);
 }
 
