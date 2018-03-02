@@ -45,3 +45,49 @@ body {
 	list-style-type: none;
 }
 
+/* cube */
+#viewbox {
+  -webkit-perspective: 3200px;
+  -webkit-perspective-origin: 50% 800px;
+}
+
+#cube {
+  position: relative;
+  margin: 0 auto;
+  height: 800px;
+  width: 800px;
+  -webkit-transition: -webkit-transform 2s linear;
+  -webkit-transform-style: preserve-3d;
+}
+
+#cube .face {
+  position: absolute;
+  height: 800px;
+  width: 800px;
+  background-color: rgba(50, 50, 50, 0.7);
+}
+
+#cube div:nth-child(1)  {
+  -webkit-transform: rotateX(90deg) translateZ(400px);
+}
+
+#cube div:nth-child(2) {
+  -webkit-transform: translateZ(400px);
+}
+
+#cube div:nth-child(3) {
+  -webkit-transform: rotateY(90deg) translateZ(400px);
+}
+
+#cube div:nth-child(4) {
+  -webkit-transform: rotateY(180deg) translateZ(400px);
+}
+
+#cube div:nth-child(5) {
+  -webkit-transform: rotateY(-90deg) translateZ(400px);
+}
+
+#cube div:nth-child(6) {
+  -webkit-transform: rotateX(-90deg) translateZ(400px) rotate(180deg);
+}
+
