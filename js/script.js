@@ -1,11 +1,11 @@
 // initialize cube
 var cubeSetup = function() {
-	// var w = window.innerWidth/2;
-	// var h = window.innerHeight/2;
+	var w = window.innerWidth;
+	var h = window.innerHeight;
 
-	var w = 1200;
-	var h = 600;
-		
+	// var w = 1200;
+	// var h = 600;
+
 	console.log(w + " " + h)
 
 	// set sizes of scene
@@ -13,7 +13,7 @@ var cubeSetup = function() {
 	document.getElementById("scene").style.height = h + "px";
 
 	// set perspective = 4w
-	document.getElementById("scene").style.transform = "perspective(" + w*4 + "px)";
+	document.getElementById("scene").style.perspective =  w*4 + "px";
 
 	// set the sizes of the cube 
 	document.getElementById("cube").style.height = h + "px";
@@ -52,13 +52,13 @@ var cubeSetup = function() {
 	faces1[0].style.transform = "translateZ(" + (-1*h/2) + "px)";
 
 	var faces2 = document.getElementById("cube").getElementsByClassName('side top');
-		faces2[0].style.transform = "translateY(" + (-1*h/2) + "px)";
+	faces2[0].style.transform = "translateY(" + (-1*h/2) + "px)";
 
 	var faces3 = document.getElementById("cube").getElementsByClassName('side bottom');
-		faces3[0].style.transform = "translateY(" + (h/2) + "px)";
+	faces3[0].style.transform = "translateY(" + (h/2) + "px)";
 
 	var faces4 = document.getElementById("cube").getElementsByClassName('side front');
-		faces4[0].style.transform = "translateZ(" + (h/2) + "px)";
+	faces4[0].style.transform = "translateZ(" + (h/2) + "px)";
 
 }
 

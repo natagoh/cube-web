@@ -1,23 +1,23 @@
 #scene {
-  width: 1200px;
-  height: 600px;
-  margin: 75px auto 0;
-  perspective: 1200px;
+  width: 1400px;
+  height: 900px;
+  margin: auto ;
+  perspective: 5600px;
 }
 
 #cube {
   position: relative;
-  width: 1200px;
-  height: 600px;
+  width: 1400px;
+  height: 900px;
   transform-style: preserve-3d;
-  transform: translateZ(-300px) rotateX(0deg);
+  transform: translateZ(-450px) rotateX(0deg);
   animation: example 15s linear infinite;
 }
 
 .side {
   position: absolute;
-  width: 1200px;
-  height: 600px;
+  width: 1400px;
+  height: 900px;
   box-sizing: border-box;
   background-color:rgba(0, 0, 0, 0.15);
   background-size: 100% 100%;
@@ -34,26 +34,26 @@
 }
 
 .back {
-  transform: translateZ(-300px) rotateX(180deg);
+  transform: translateZ(-450px) rotateX(180deg);
 }
 .top {
-  transform: translateY(-300px) rotateX(90deg);
+  transform: translateY(-450px) rotateX(90deg);
 }
 .bottom {
-  transform: translateY(300px) rotateX(270deg);
+  transform: translateY(450px) rotateX(270deg);
 }
 .front {
-  transform: translateZ(300px);
+  transform: translateZ(450px);
 }
 
 @keyframes example {
-  0% { transform: translateZ(-300px) rotateX(0deg); }
-  15% { transform: translateZ(-300px) rotateX(90deg); }
-  25% { transform: translateZ(-300px) rotateX(90deg); }
-  40% { transform: translateZ(-300px) rotateX(180deg); }
-  50% { transform: translateZ(-300px) rotateX(180deg); }
-  65% { transform: translateZ(-300px) rotateX(270deg); }
-  75% { transform: translateZ(-300px) rotateX(270deg); }
-  90% { transform: translateZ(-300px) rotateX(360deg); }
-  100% { transform: translateZ(-300px) rotateX(360deg); }
+  0% { transform: translateZ(-450px) rotateX(0deg); }
+  15% { transform: translateZ(-450px) rotateX(90deg); }
+  25% { transform: translateZ(-450px) rotateX(90deg); }
+  40% { transform: translateZ(-450px) rotateX(180deg); }
+  50% { transform: translateZ(-450px) rotateX(180deg); }
+  65% { transform: translateZ(-450px) rotateX(270deg); }
+  75% { transform: translateZ(-450px) rotateX(270deg); }
+  90% { transform: translateZ(-450px) rotateX(360deg); }
+  100% { transform: translateZ(-450px) rotateX(360deg); }
 }
