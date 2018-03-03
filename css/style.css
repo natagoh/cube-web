@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 #scene {
   width: 600px;
   height: 300px;
