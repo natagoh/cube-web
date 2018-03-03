@@ -133,33 +133,37 @@ var cubeSetup = function() {
 	*/
 	// set the size of the faces
 
-	var trans = translate(0, 0, (-1*h/2));
-	var rot = rotateAroundXAxis( Math.PI );
-	var mat = multiplyMatrices(rot, trans);
-	var matstyle = matrixArrayToCssMatrix(mat);
+	// back face
+	trans = translate(0, 0, (-1*h/2));
+	rot = rotateAroundXAxis( Math.PI );
+	mat = multiplyMatrices(rot, trans);
+	matstyle = matrixArrayToCssMatrix(mat);
 
-	var faces1 = document.getElementById("cube").getElementsByClassName('side back');
-	faces1[0].style.transform = matstyle;
+	var back = document.getElementById("cube").getElementsByClassName('side back');
+	back[0].style.transform = matstyle;
 
-	var trans = translate(0, (-1*h/2), 0);
-	var rot = rotateAroundXAxis( Math.PI /2);
-	var mat = multiplyMatrices(rot, trans);
-	var matstyle = matrixArrayToCssMatrix(mat);
+	// top
+	trans = translate(0, (-1*h/2), 0);
+	rot = rotateAroundXAxis( Math.PI /2);
+	mat = multiplyMatrices(rot, trans);
+	matstyle = matrixArrayToCssMatrix(mat);
 
-	var faces2 = document.getElementById("cube").getElementsByClassName('side top');
-	faces2[0].style.transform = matstyle;
+	var top = document.getElementById("cube").getElementsByClassName('side top');
+	top[0].style.transform = matstyle;
 
 
-	var trans = translate(0, h/2, 0);
-	var rot = rotateAroundXAxis( Math.PI *3/2);
-	var mat = multiplyMatrices(rot,trans);
-	var matstyle = matrixArrayToCssMatrix(mat);
+	// bottom
+	trans = translate(0, h/2, 0);
+	rot = rotateAroundXAxis( Math.PI *3/2);
+	mat = multiplyMatrices(rot,trans);
+	matstyle = matrixArrayToCssMatrix(mat);
 
-	var faces3 = document.getElementById("cube").getElementsByClassName('side bottom');
-	faces3[0].style.transform = matstyle;
+	var bottom = document.getElementById("cube").getElementsByClassName('side bottom');
+	bottom[0].style.transform = matstyle;
 
-	var faces4 = document.getElementById("cube").getElementsByClassName('side front');
-	faces4[0].style.transform = "translateZ(" + (h/2) + "px)";
+	// front
+	var front = document.getElementById("cube").getElementsByClassName('side front');
+	front[0].style.transform = "translateZ(" + (h/2) + "px)";
 
 }
 
@@ -179,26 +183,50 @@ window.onresize = function(event) {
 	center();
 };
 
-var xAngle = 0, yAngle = 0;
-document.addEventListener('keydown', function(e) {
-  switch(e.keyCode) {
+// var xAngle = 0, yAngle = 0;
+// document.addEventListener('keydown', function(e) {
+//   switch(e.keyCode) {
+//     case 38: // up
+//       xAngle += 90;
+//       break;
 
-    case 37: // left
-      yAngle -= 90;
-      break;
+//     case 40: // down
+//       xAngle -= 90;
+//       break;
+//   };
 
-    case 38: // up
-      xAngle += 90;
-      break;
+//   document.getElementById("cube").style.webkitTransform = "rotateX("+xAngle+"deg)";
+// }, false);
 
-    case 39: // right
-      yAngle += 90;
-      break;
 
-    case 40: // down
-      xAngle -= 90;
-      break;
-  };
+// get scrolling event without scrollbar
+var angle = 0;
+document.addEventListener("wheel", function(e) {
+    // 1 scroll unit seems to be 200 (scroll down)
+    var scroll = parseInt(e.deltaY);
 
-  document.getElementById("cube").style.webkitTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
-}, false);
+    // scroll down
+    if (scroll > 0) {
+    	angle = (angle - 90) % 360;
+    } else {
+    	angle = (angle + 90) % 360;
+    }
+    console.log("angle: " + angle);
+    var h = window.innerHeight;
+    var trans = translate(0, 0, -1*h/2);
+	var rot = rotateAroundXAxis( Math.PI * angle / 180);
+	var mat = multiplyMatrices(rot,trans);
+	var matstyle = matrixArrayToCssMatrix(mat);
+
+	var prevmat =  stringToMatrix(document.getElementById("cube").style.transform);
+	var newmat = matrixArrayToCssMatrix(multiplyMatrices(rot, prevmat));
+
+    document.getElementById("cube").style.transform = matstyle;
+});
+
+//converts a string of transform matrix into a matrix
+function stringToMatrix(s) {
+  var array = s.substring(0, s.length-1).split(", ");
+  array[0] = array[0].replace("matrix3d(", "");
+  return array;
+}
