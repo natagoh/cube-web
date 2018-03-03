@@ -80,8 +80,8 @@ function matrixArrayToCssMatrix(array) {
 
 // initialize cube
 var cubeSetup = function() {
-	var w = 600;
-	var h = 300;
+	var w = window.innerWidth;
+	var h = window.innerHeight;
 
 	// var w = 1200;
 	// var h = 600;
@@ -103,7 +103,7 @@ var cubeSetup = function() {
 	// document.getElementById("cube").style.transform = "perspective(" + w*4 + "px)";
 	var trans = translate(0, 0, (-1*h/2));
 	var rot = rotateAroundXAxis( 0 );
-	var mat = multiplyMatrices(trans, rot);
+	var mat = multiplyMatrices(rot, trans);
 	var matstyle = matrixArrayToCssMatrix(mat);
 	document.getElementById("cube").style.transform = matstyle;
 
@@ -135,24 +135,24 @@ var cubeSetup = function() {
 
 	var trans = translate(0, 0, (-1*h/2));
 	var rot = rotateAroundXAxis( Math.PI );
-	var mat = multiplyMatrices(trans, rot);
+	var mat = multiplyMatrices(rot, trans);
 	var matstyle = matrixArrayToCssMatrix(mat);
 
 	var faces1 = document.getElementById("cube").getElementsByClassName('side back');
 	faces1[0].style.transform = matstyle;
 
-	var trans = translate(0, 0, (-1*h/2));
+	var trans = translate(0, (-1*h/2), 0);
 	var rot = rotateAroundXAxis( Math.PI /2);
-	var mat = multiplyMatrices(trans, rot);
+	var mat = multiplyMatrices(rot, trans);
 	var matstyle = matrixArrayToCssMatrix(mat);
 
 	var faces2 = document.getElementById("cube").getElementsByClassName('side top');
 	faces2[0].style.transform = matstyle;
 
 
-	var trans = translate(0, 0, h/2);
+	var trans = translate(0, h/2, 0);
 	var rot = rotateAroundXAxis( Math.PI *3/2);
-	var mat = multiplyMatrices(trans, rot);
+	var mat = multiplyMatrices(rot,trans);
 	var matstyle = matrixArrayToCssMatrix(mat);
 
 	var faces3 = document.getElementById("cube").getElementsByClassName('side bottom');
