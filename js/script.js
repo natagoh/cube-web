@@ -21,3 +21,20 @@ document.addEventListener('keydown', function(e) {
 
   document.getElementById("cube").style.transform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
 }, false);
+
+
+// get scrolling event without scrollbar
+var angle = 0;
+document.addEventListener("wheel", function(e) {
+    // 1 scroll unit seems to be 200 (scroll down)
+    var scroll = parseInt(e.deltaY);
+
+    // scroll down
+    if (scroll > 0) {
+      angle -= 90;
+    } else {
+      angle += 90;
+    }
+    console.log("angle: " + angle);
+    document.getElementById("cube").style.transform = "rotateX("+angle+"deg)";
+});
