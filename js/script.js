@@ -95,6 +95,10 @@ var cubeSetup = function() {
 	// set perspective = 4w
 	document.getElementById("scene").style.perspective =  w*4 + "px";
 
+  // set perspective origin
+  //document.getElementById("scene").style.WebkitPerspectiveOrigin = "50% " + w + "px"; // Chrome, Safari and Opera
+  //document.getElementById("scene").style.perspectiveOrigin = "50% " + w + "px";
+
 	// set the sizes of the cube 
 	document.getElementById("cube").style.height = h + "px";
 	document.getElementById("cube").style.width = w + "px";
@@ -198,6 +202,27 @@ window.onresize = function(event) {
 //   document.getElementById("cube").style.webkitTransform = "rotateX("+xAngle+"deg)";
 // }, false);
 
+var xAngle = 0;
+document.addEventListener('keydown', function(e) {
+  switch(e.keyCode) {
+
+    case 38: // up
+      xAngle += 90;
+      break;
+
+    case 40: // down
+      xAngle -= 90;
+      break;
+  };
+  var h = window.innerHeight;
+  var trans = translate(0, 0, -1*h/2);
+  var rot = rotateAroundXAxis( Math.PI * xAngle / 180);
+  var mat = multiplyMatrices(rot,trans);
+  var matstyle = matrixArrayToCssMatrix(mat);
+  //document.getElementById("cube").style.transform = "rotateX("+xAngle+"deg)";
+  document.getElementById("cube").style.transform = matstyle;
+}, false);
+
 
 // get scrolling event without scrollbar
 var angle = 0;
@@ -207,9 +232,9 @@ document.addEventListener("wheel", function(e) {
 
     // scroll down
     if (scroll > 0) {
-    	angle = (angle - 90) % 360;
+    	angle -= 90;
     } else {
-    	angle = (angle + 90) % 360;
+    	angle += 90;
     }
     console.log("angle: " + angle);
     var h = window.innerHeight;

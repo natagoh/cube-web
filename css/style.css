@@ -14,11 +14,8 @@ body {
   position: relative;
   width: 600px;
   height: 300px;
-  transform-style: preserve-3d;
-  /*transform-origin: 50% 50% 0;*/
-  /*transform: translateZ(-300px) rotateX(0deg);*/
-
-  transition: transform 1s ease-out;
+  -webkit-transition: -webkit-transform 1s linear;
+  -webkit-transform-style: preserve-3d;
   /*animation: rotate 10s linear;*/
 }
 
@@ -26,6 +23,7 @@ body {
   position: absolute;
   width: 600px;
   height: 300px;
+  
   box-sizing: border-box;
   background-color:rgba(0, 0, 0, 0.15);
   background-size: 100% 100%;
