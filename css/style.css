@@ -1,23 +1,24 @@
 #scene {
-  width: 1400px;
-  height: 900px;
+  width: 600px;
+  height: 300px;
   margin: auto ;
-  perspective: 5600px;
+  perspective: 2400px;
 }
 
 #cube {
   position: relative;
-  width: 1400px;
-  height: 900px;
+  width: 600px;
+  height: 300px;
   transform-style: preserve-3d;
-  transform: translateZ(-450px) rotateX(0deg);
+  /*transform: translateZ(-300px) rotateX(0deg);*/
+  transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,-150,1);
   animation: example 15s linear infinite;
 }
 
 .side {
   position: absolute;
-  width: 1400px;
-  height: 900px;
+  width: 600px;
+  height: 300px;
   box-sizing: border-box;
   background-color:rgba(0, 0, 0, 0.15);
   background-size: 100% 100%;
@@ -34,16 +35,16 @@
 }
 
 .back {
-  transform: translateZ(-450px) rotateX(180deg);
+  transform: translateZ(-150px) rotateX(180deg);
 }
 .top {
-  transform: translateY(-450px) rotateX(90deg);
+  transform: translateY(-150px) rotateX(90deg);
 }
 .bottom {
-  transform: translateY(450px) rotateX(270deg);
+  transform: translateY(150px) rotateX(270deg);
 }
 .front {
-  transform: translateZ(450px);
+  transform: translateZ(150px);
 }
 
 @keyframes example {
