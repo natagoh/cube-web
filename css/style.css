@@ -17,6 +17,7 @@ body {
   height: 300px;
   -webkit-transition: -webkit-transform 1s linear;
   -webkit-transform-style: preserve-3d;
+   /*animation: rotate-360-270 1s linear forwards;*/
 }
 
 /* 
@@ -24,40 +25,78 @@ body {
  * rotating faces via animations
  */
 
-.rotate-90 {
-  animation: rotate-90 1s linear forwards;
+/* FORWARDS ANIMATIONS */
+.rotate-0-90 {
+  animation: rotate-0-90 1s linear forwards;
 }
 
-.rotate-180 {
-  animation: rotate-180 1s linear forwards;
+.rotate-90-180 {
+  animation: rotate-90-180 1s linear forwards;
 }
 
-.rotate-270 {
-  animation: rotate-270 1s linear forwards;
+.rotate-180-270 {
+  animation: rotate-180-270 1s linear forwards;
 }
 
-.rotate-360 {
-  animation: rotate-360 1s linear forwards;
+.rotate-270-0 {
+  animation: rotate-270-360 1s linear forwards;
 }
 
-@keyframes rotate-90 {
+@keyframes rotate-0-90 {
   0%  { transform: translateZ(-450px) rotateX(0deg); }
   100% { transform: translateZ(-450px) rotateX(90deg); }
 }
 
-@keyframes rotate-180 {
+@keyframes rotate-90-180 {
   0%  { transform: translateZ(-450px) rotateX(90deg); }
   100% { transform: translateZ(-450px) rotateX(180deg); }
 }
 
-@keyframes rotate-270 {
+@keyframes rotate-180-270 {
   0%  { transform: translateZ(-450px) rotateX(180deg); }
   100% { transform: translateZ(-450px) rotateX(270deg); }
 }
 
-@keyframes rotate-360 {
+@keyframes rotate-270-360 {
   0%  { transform: translateZ(-450px) rotateX(270deg); }
   100% { transform: translateZ(-450px) rotateX(360deg); }
+}
+
+/* BACKWARDS ANIMATIONS */
+.rotate-90-0 {
+  animation: rotate-90-0 1s linear forwards;
+}
+
+.rotate-180-90 {
+  animation: rotate-180-90 1s linear forwards;
+}
+
+.rotate-270-180 {
+  animation: rotate-270-180 1s linear forwards;
+}
+
+.rotate-0-270 {
+  animation: rotate-360-270 1s linear forwards;
+}
+
+@keyframes rotate-90-0 {
+  0%  { transform: translateZ(-450px) rotateX(90deg); }
+  100% { transform: translateZ(-450px) rotateX(0deg); }
+}
+
+@keyframes rotate-180-90 {
+  0%  { transform: translateZ(-450px) rotateX(180deg); }
+  100% { transform: translateZ(-450px) rotateX(90deg); }
+}
+
+@keyframes rotate-270-180 {
+  0%  { transform: translateZ(-450px) rotateX(270deg); }
+  100% { transform: translateZ(-450px) rotateX(180deg); }
+}
+
+@keyframes rotate-360-270 {
+  0%  { transform: translateZ(-450px) rotateX(360deg); }
+  100% { transform: translateZ(-450px) rotateX(270deg); }
 }
 
 

@@ -229,14 +229,17 @@ var angle = 0;
 document.addEventListener("wheel", function(e) {
     // 1 scroll unit seems to be 200 (scroll down)
     var scroll = parseInt(e.deltaY);
-
+    var prevAngle = angle;
     // scroll down
     if (scroll > 0) {
-    	angle -= 90;
+      angle -= 90;
+      if (angle < 0) { angle = 360 + angle; }
+
     } else {
     	angle += 90;
     } 
     angle %= 360;
+
  //    var h = window.innerHeight;
  //    var trans = translate(0, 0, -1*h/2);
 	// var rot = rotateAroundXAxis( Math.PI * angle / 180);
@@ -251,27 +254,8 @@ document.addEventListener("wheel", function(e) {
 
     // animation jank hacked solution
     var cube = document.getElementById("cube");
-    var rotateclass = "";
-    switch(angle) {
-      case 0:
-          rotateclass = "rotate-360";
-          console.log("rotating from 0 to 90");
-          break;
-      case 90:
-          rotateclass = "rotate-90";
-          console.log("rotating from 90 to 180");
-          break;
-      case 180:
-          rotateclass = "rotate-180";
-          console.log("rotating from 180 to 270");
-          break;
-      case 270:
-          rotateclass = "rotate-270";
-          console.log("rotating from 270 to 0");
-          break;
-    }
+    var rotateclass = " rotate-" + prevAngle + "-" + angle;
     cube.className = " " + rotateclass;
-
 });
 
 //converts a string of transform matrix into a matrix
