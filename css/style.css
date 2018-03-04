@@ -5,14 +5,13 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
-}
 
-.side-container {
   width: 100vw;
   height: 100vh;
   background: rgba(19, 17, 24, 1);
   background-image: radial-gradient(rgba(84, 83, 86, 1) 5%, transparent 0);
   background-size: 30px 30px;
+  display: flex;
 }
   
 .container {
@@ -23,7 +22,7 @@
 .splash {
   display: flex;
   justify-content: space-around;
-  padding-right: 100px;
+  /*padding-right: 100px;*/
 }
 
 #about{
