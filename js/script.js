@@ -121,21 +121,6 @@ var cubeSetup = function() {
 	}
 
 	// set face rotations
-	/*
-		.back {
-			transform: translateZ(-300px) rotateX(180deg);
-		}
-		.top {
-			transform: translateY(-300px) rotateX(90deg);
-		}
-		.bottom {
-			transform: translateY(300px) rotateX(270deg);
-		}
-		.front {
-			transform: translateZ(300px);
-		}
-	*/
-	// set the size of the faces
 
 	// back face
 	trans = translate(0, 0, (-1*h/2));
@@ -171,21 +156,6 @@ var cubeSetup = function() {
 
 }
 
-// centering splash logo and intro
-var center = function() {
-	cubeSetup();
-}
-
-if ( document.readyState === "complete" || ( document.readyState !== "loading" && !document.documentElement.doScroll )) {
-	center();
-} else {
-	document.addEventListener("DOMContentLoaded", center);
-}
-
-// handle resize
-window.onresize = function(event) {
-	center();
-};
 
 // var xAngle = 0, yAngle = 0;
 // document.addEventListener('keydown', function(e) {
@@ -240,18 +210,20 @@ document.addEventListener("wheel", function(e) {
     } 
     angle %= 360;
 
- //    var h = window.innerHeight;
- //    var trans = translate(0, 0, -1*h/2);
-	// var rot = rotateAroundXAxis( Math.PI * angle / 180);
-	// var mat = multiplyMatrices(rot,trans);
-	// var matstyle = matrixArrayToCssMatrix(mat);
+    // var h = window.innerHeight;
+    // var trans = translate(0, 0, -1*h/2);
 
- //  // applying a -+ 90 rotation on prev transform
-	// var prevmat =  stringToMatrix(document.getElementById("cube").style.transform);
-	// var newmat = matrixArrayToCssMatrix( multiplyMatrices(rot, prevmat));
+    // var rot = rotateAroundXAxis( Math.PI * angle / 180);
+    // var mat = multiplyMatrices(rot,trans);
+    // var matstyle = matrixArrayToCssMatrix(mat);
 
- //    document.getElementById("cube").style.transform = newmat;
+    // // applying a -+ 90 rotation on prev transform
+    // var prevmat =  stringToMatrix(document.getElementById("cube").style.transform);
+    // var newmat = matrixArrayToCssMatrix( multiplyMatrices(rot, prevmat));
 
+    //document.getElementById("cube").style.transform = newmat;
+
+    //console.log("prev angle: " + prevAngle + " curr angle: " + angle);
     // animation jank hacked solution
     var cube = document.getElementById("cube");
     var rotateclass = " rotate-" + prevAngle + "-" + angle;
@@ -264,3 +236,71 @@ function stringToMatrix(s) {
   array[0] = array[0].replace("matrix3d(", "");
   return array;
 }
+
+// generate css keyframes with dynamic height attributes for a perfect animation
+var gen = function() {
+  // first remove old styles from prev resizings
+  var head = document.getElementsByTagName('head')[0];
+  var children = head.childNodes;
+  for (i = 2; i < children.length; i++) {
+    head.removeChild(children[i]);
+  }
+
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  var keyFrames = '\
+    @keyframes rotate-0-90 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(0deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(90deg); }\
+    }\
+    @keyframes rotate-90-180 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(90deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(180deg); }\
+    }\
+    @keyframes rotate-180-270 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(180deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(270deg); }\
+    }\
+    @keyframes rotate-270-360 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(270deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(360deg); }\
+    }\
+    @keyframes rotate-90-0 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(90deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(0deg); }\
+    }\
+    @keyframes rotate-180-90 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(180deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(90deg); }\
+    }\
+    @keyframes rotate-270-180 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(270deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(180deg); }\
+    }\
+    @keyframes rotate-360-270 {\
+      0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(360deg); }\
+      100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(270deg); }\
+    }';
+
+     var h = window.innerHeight;
+  style.innerHTML = keyFrames.replace(/DYNAMIC_VAR/g, h/2+"");
+  head.appendChild(style);
+  console.log("genned dynamic style sheet");
+}
+
+// centering splash logo and intro
+var initialize = function() {
+  cubeSetup();
+  gen();
+}
+
+if ( document.readyState === "complete" || ( document.readyState !== "loading" && !document.documentElement.doScroll )) {
+  initialize();
+} else {
+  document.addEventListener("DOMContentLoaded", initialize);
+}
+
+// handle resize
+window.onresize = function(event) {
+  initialize();
+};
