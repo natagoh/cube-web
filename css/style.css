@@ -1,5 +1,5 @@
-#experiment {
-  -webkit-perspective: 800px;
+#scene {
+  -webkit-perspective: 1600px;
   -webkit-perspective-origin: 50% 200px;
 }
 
@@ -8,38 +8,29 @@
   margin: 0 auto;
   height: 400px;
   width: 400px;
-  -webkit-transition: -webkit-transform 2s linear;
+  -webkit-transition: -webkit-transform 1s linear;
   -webkit-transform-style: preserve-3d;
 }
 
-.face {
+.side {
   position: absolute;
-  height: 360px;
-  width: 360px;
-  padding: 20px;
-  background-color: rgba(50, 50, 50, 0.7);
+  height: 400px;
+  width: 400px;
+  background-color: rgba(50, 50, 50, 0.3);
+  text-align: center;
+  font-size: 100px
 }
 
-#cube .one  {
-  -webkit-transform: rotateX(90deg) translateZ(200px);
-}
 
-#cube .two {
-  -webkit-transform: translateZ(200px);
+.back {
+  transform: translateZ(-200px) rotateX(180deg);
 }
-
-#cube .three {
-  -webkit-transform: rotateY(90deg) translateZ(200px);
+.top {
+  transform: translateY(-200px) rotateX(90deg);
 }
-
-#cube .four {
-  -webkit-transform: rotateY(180deg) translateZ(200px);
+.bottom {
+  transform: translateY(200px) rotateX(270deg);
 }
-
-#cube .five {
-  -webkit-transform: rotateY(-90deg) translateZ(200px);
-}
-
-#cube .six {
-  -webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+.front {
+  transform: translateZ(200px);
 }
