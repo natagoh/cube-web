@@ -1,47 +1,115 @@
-@font-face {
-    font-family: '8-bit pusab';
-	src: 
-		url('fonts/8-bit-pusab.eot'); /* IE9 Compat Modes */
-	src: 
-		url('fonts/8-bit-pusab.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		url('fonts/8-bit-pusab.woff2') format('woff2'), /* Super Modern Browsers */
-		url('fonts/8-bit-pusab.woff') format('woff'), /* Pretty Modern Browsers */
-		url('fonts/8-bit-pusab.ttf')  format('truetype'), /* Safari, Android, iOS */
-		url('fonts/8-bit-pusab.svg#svgFontName') format('svg'); /* Legacy iOS */
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* grid dot */
 body {
-	background: rgba(19, 17, 24, 1);
-	background-image: radial-gradient(rgba(84, 83, 86, 1) 5%, transparent 0);
-	background-size: 30px 30px;
-	margin: 0;
+  margin: 0;
 }
 
-#splash-container {
-  	display: flex; 
-  	justify-content: center;
- 	align-items: center;
- 	flex-wrap: wrap;
+#scene {
+  width: 600px;
+  height: 300px;
+  margin: auto ;
+  perspective: 2400px;
+  perspective-origin: center;
+  z-index: 1;
 }
 
-.splash {
-  	display: flex;
-  	justify-content: space-around;
-  	padding-right: 100px;
+#cube {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  -webkit-transition: -webkit-transform 1s linear;
+  -webkit-transform-style: preserve-3d;
+   /*animation: rotate-360-270 1s linear forwards;*/
 }
 
-#about{
-	visibility: hidden;
-	color: white;
-	font-family: 'Amatic SC', cursive;
-	font-weight: normal;
-	font-style: normal;
+/* 
+ * TO DO: fix this hard code hack
+ * rotating faces via animations
+ */
+
+/* FORWARDS ANIMATIONS */
+.rotate-0-90 {
+  animation: rotate-0-90 1s linear forwards;
 }
 
-#about ul {
-	list-style-type: none;
+.rotate-90-180 {
+  animation: rotate-90-180 1s linear forwards;
 }
 
+.rotate-180-270 {
+  animation: rotate-180-270 1s linear forwards;
+}
+
+.rotate-270-0 {
+  animation: rotate-270-360 1s linear forwards;
+}
+
+
+/* BACKWARDS ANIMATIONS */
+.rotate-90-0 {
+  animation: rotate-90-0 1s linear forwards;
+}
+
+.rotate-180-90 {
+  animation: rotate-180-90 1s linear forwards;
+}
+
+.rotate-270-180 {
+  animation: rotate-270-180 1s linear forwards;
+}
+
+.rotate-0-270 {
+  animation: rotate-360-270 1s linear forwards;
+}
+
+
+
+.side {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  
+  box-sizing: border-box;
+  background-color:rgba(0, 0, 0, 0.15);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 240px 0;
+  font: 50px/1 'Trebuchet MS', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.side span {
+  position: relative;
+}
+
+.back {
+  transform: translateZ(-150px) rotateX(180deg);
+}
+.top {
+  transform: translateY(-150px) rotateX(90deg);
+}
+.bottom {
+  transform: translateY(150px) rotateX(270deg);
+}
+.front {
+  transform: translateZ(150px);
+}
+
+.paused{
+  -webkit-animation-play-state:paused;
+  -moz-animation-play-state:paused;
+  -o-animation-play-state:paused; 
+  animation-play-state:paused;
+}
+
+@keyframes rotate {
+  0%  { transform: translateZ(-450px) rotateX(0deg); }
+  15% { transform: translateZ(-450px) rotateX(90deg); }
+  25% { transform: translateZ(-450px) rotateX(90deg); }
+  40% { transform: translateZ(-450px) rotateX(180deg); }
+  50% { transform: translateZ(-450px) rotateX(180deg); }
+  65% { transform: translateZ(-450px) rotateX(270deg); }
+  75% { transform: translateZ(-450px) rotateX(270deg); }
+  90% { transform: translateZ(-450px) rotateX(360deg); }
+  100% { transform: translateZ(-450px) rotateX(360deg); }
+}
