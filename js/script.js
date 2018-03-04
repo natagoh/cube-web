@@ -235,18 +235,43 @@ document.addEventListener("wheel", function(e) {
     	angle -= 90;
     } else {
     	angle += 90;
+    } 
+    angle %= 360;
+ //    var h = window.innerHeight;
+ //    var trans = translate(0, 0, -1*h/2);
+	// var rot = rotateAroundXAxis( Math.PI * angle / 180);
+	// var mat = multiplyMatrices(rot,trans);
+	// var matstyle = matrixArrayToCssMatrix(mat);
+
+ //  // applying a -+ 90 rotation on prev transform
+	// var prevmat =  stringToMatrix(document.getElementById("cube").style.transform);
+	// var newmat = matrixArrayToCssMatrix( multiplyMatrices(rot, prevmat));
+
+ //    document.getElementById("cube").style.transform = newmat;
+
+    // animation jank hacked solution
+    var cube = document.getElementById("cube");
+    var rotateclass = "";
+    switch(angle) {
+      case 0:
+          rotateclass = "rotate-360";
+          console.log("rotating from 0 to 90");
+          break;
+      case 90:
+          rotateclass = "rotate-90";
+          console.log("rotating from 90 to 180");
+          break;
+      case 180:
+          rotateclass = "rotate-180";
+          console.log("rotating from 180 to 270");
+          break;
+      case 270:
+          rotateclass = "rotate-270";
+          console.log("rotating from 270 to 0");
+          break;
     }
-    console.log("angle: " + angle);
-    var h = window.innerHeight;
-    var trans = translate(0, 0, -1*h/2);
-	var rot = rotateAroundXAxis( Math.PI * angle / 180);
-	var mat = multiplyMatrices(rot,trans);
-	var matstyle = matrixArrayToCssMatrix(mat);
+    cube.className = " " + rotateclass;
 
-	var prevmat =  stringToMatrix(document.getElementById("cube").style.transform);
-	var newmat = matrixArrayToCssMatrix(multiplyMatrices(rot, prevmat));
-
-    document.getElementById("cube").style.transform = matstyle;
 });
 
 //converts a string of transform matrix into a matrix

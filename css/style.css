@@ -7,6 +7,7 @@ body {
   height: 300px;
   margin: auto ;
   perspective: 2400px;
+  perspective-origin: center;
   z-index: 1;
 }
 
@@ -16,8 +17,49 @@ body {
   height: 300px;
   -webkit-transition: -webkit-transform 1s linear;
   -webkit-transform-style: preserve-3d;
-  /*animation: rotate 10s linear;*/
 }
+
+/* 
+ * TO DO: fix this hard code hack
+ * rotating faces via animations
+ */
+
+.rotate-90 {
+  animation: rotate-90 1s linear forwards;
+}
+
+.rotate-180 {
+  animation: rotate-180 1s linear forwards;
+}
+
+.rotate-270 {
+  animation: rotate-270 1s linear forwards;
+}
+
+.rotate-360 {
+  animation: rotate-360 1s linear forwards;
+}
+
+@keyframes rotate-90 {
+  0%  { transform: translateZ(-450px) rotateX(0deg); }
+  100% { transform: translateZ(-450px) rotateX(90deg); }
+}
+
+@keyframes rotate-180 {
+  0%  { transform: translateZ(-450px) rotateX(90deg); }
+  100% { transform: translateZ(-450px) rotateX(180deg); }
+}
+
+@keyframes rotate-270 {
+  0%  { transform: translateZ(-450px) rotateX(180deg); }
+  100% { transform: translateZ(-450px) rotateX(270deg); }
+}
+
+@keyframes rotate-360 {
+  0%  { transform: translateZ(-450px) rotateX(270deg); }
+  100% { transform: translateZ(-450px) rotateX(360deg); }
+}
+
 
 .side {
   position: absolute;
@@ -50,6 +92,13 @@ body {
 }
 .front {
   transform: translateZ(150px);
+}
+
+.paused{
+  -webkit-animation-play-state:paused;
+  -moz-animation-play-state:paused;
+  -o-animation-play-state:paused; 
+  animation-play-state:paused;
 }
 
 @keyframes rotate {
