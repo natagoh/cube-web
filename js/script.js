@@ -172,21 +172,27 @@ var cubeSetup = function() {
 //   document.getElementById("cube").style.webkitTransform = "rotateX("+xAngle+"deg)";
 // }, false);
 
-var xAngle = 0;
+var angle1 = 0;
 document.addEventListener('keydown', function(e) {
+  var prevAngle1 = angle1;
   switch(e.keyCode) {
 
     case 38: // up
-      xAngle += 90;
+      angle1 += 90;
       break;
 
     case 40: // down
-      xAngle -= 90;
+      angle1 -= 90;
+      if (angle1 < 0) { angle1 = 360 + angle1; }
       break;
   };
+
+   angle1 %= 360;
+
+
   var h = window.innerHeight;
   var trans = translate(0, 0, -1*h/2);
-  var rot = rotateAroundXAxis( Math.PI * xAngle / 180);
+  var rot = rotateAroundXAxis( Math.PI * angle1 / 180);
   var mat = multiplyMatrices(rot,trans);
   var matstyle = matrixArrayToCssMatrix(mat);
   //document.getElementById("cube").style.transform = "rotateX("+xAngle+"deg)";
@@ -195,9 +201,13 @@ document.addEventListener('keydown', function(e) {
 
 
 // get scrolling event without scrollbar
+// document.addEventListener("wheel", function(e) {
+//     triggerRotation(e);
+// });
+
 var angle = 0;
-document.addEventListener("wheel", function(e) {
-    // 1 scroll unit seems to be 200 (scroll down)
+function triggerRotation(e) {
+  // 1 scroll unit seems to be 200 (scroll down)
     var scroll = parseInt(e.deltaY);
     var prevAngle = angle;
     // scroll down
@@ -206,29 +216,18 @@ document.addEventListener("wheel", function(e) {
       if (angle < 0) { angle = 360 + angle; }
 
     } else {
-    	angle += 90;
+      angle += 90;
     } 
     angle %= 360;
 
-    // var h = window.innerHeight;
-    // var trans = translate(0, 0, -1*h/2);
-
-    // var rot = rotateAroundXAxis( Math.PI * angle / 180);
-    // var mat = multiplyMatrices(rot,trans);
-    // var matstyle = matrixArrayToCssMatrix(mat);
-
-    // // applying a -+ 90 rotation on prev transform
-    // var prevmat =  stringToMatrix(document.getElementById("cube").style.transform);
-    // var newmat = matrixArrayToCssMatrix( multiplyMatrices(rot, prevmat));
-
-    //document.getElementById("cube").style.transform = newmat;
-
-    //console.log("prev angle: " + prevAngle + " curr angle: " + angle);
+    console.log("prev angle: " + prevAngle + " curr angle: " + angle);
     // animation jank hacked solution
     var cube = document.getElementById("cube");
     var rotateclass = " rotate-" + prevAngle + "-" + angle;
     cube.className = " " + rotateclass;
-});
+}
+// throttle scrolling once per animation
+document.addEventListener("wheel", _.throttle(triggerRotation, 1000, {leading:true, trailing:false}))
 
 //converts a string of transform matrix into a matrix
 function stringToMatrix(s) {
@@ -242,9 +241,9 @@ var gen = function() {
   // first remove old styles from prev resizings
   var head = document.getElementsByTagName('head')[0];
   var children = head.childNodes;
-  for (i = 2; i < children.length; i++) {
-    head.removeChild(children[i]);
-  }
+  // for (i = 0; i < children.length; i++) {
+  //   head.removeChild(children[i]);
+  // }
 
   var style = document.createElement('style');
   style.type = 'text/css';
@@ -351,7 +350,14 @@ if ( document.readyState === "complete" || ( document.readyState !== "loading" &
   document.addEventListener("DOMContentLoaded", initialize);
 }
 
-// handle resize
-window.onresize = function(event) {
-  initialize();
-};
+// // handle resize
+// window.onresize = function(event) {
+//   initialize();
+// };
+
+
+// debounce resize 
+window.addEventListener("resize", _.debounce(initialize, 500, {leading:false, trailing:true}));
+
+
+

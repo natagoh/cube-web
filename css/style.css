@@ -19,6 +19,8 @@
   height: 100vh;
   background-color:rgba(0, 0, 0, 0.15)
 }
+
+
 .splash {
   display: flex;
   justify-content: space-around;
@@ -26,6 +28,7 @@
 }
 
 #about{
+  display: flex;
   visibility: hidden;
   color: white;
   font-family: 'Amatic SC', cursive;
@@ -64,6 +67,7 @@ body {
  * TO DO: fix this hard code hack
  * rotating faces via animations
  */
+
 
 /* FORWARDS ANIMATIONS */
 .rotate-0-90 {
