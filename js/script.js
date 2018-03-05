@@ -195,15 +195,14 @@ function triggerRotation(e) {
       } 
     } 
     else if (e.type == "keydown") {
-      console.log("keydown" + angle);
       switch(e.keyCode) {
           case 38: // up key
-            angle += 90;
+          angle -= 90;
+            if (angle < 0) { angle = 360 + angle; }
             break;
 
           case 40: // down key
-            angle -= 90;
-            if (angle < 0) { angle = 360 + angle; }
+            angle += 90;
             break;
         };
     }

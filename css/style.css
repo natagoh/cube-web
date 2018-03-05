@@ -1,3 +1,4 @@
+/* splash styles */
 #splash-container {
   margin: 0;
   display: flex; 
@@ -20,7 +21,6 @@
   background-color:rgba(0, 0, 0, 0.15)
 }
 
-
 .splash {
   display: flex;
   justify-content: space-around;
@@ -41,6 +41,27 @@
   list-style-type: none;
 }
 
+/* projects styles */
+#test-container {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(84, 83, 86, 0.1);
+  background-image: radial-gradient(rgba(19, 17, 24, 1) 5%, transparent 0);
+  background-size: 30px 30px;
+  display: flex;
+}
+
+#dif-container {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(84, 83, 86, 0.4);
+  background-image: radial-gradient(rgba(19, 17, 24, 1) 5%, transparent 0);
+  background-size: 30px 30px;
+  display: flex;
+}
+
+
+/* cube stuff note: numbers will be dynamically updated via javascript */
 body {
   margin: 0;
 }
@@ -68,7 +89,6 @@ body {
  * rotating faces via animations
  */
 
-
 /* FORWARDS ANIMATIONS */
 .rotate-0-90 {
   animation: rotate-0-90 1s linear forwards;
@@ -85,7 +105,6 @@ body {
 .rotate-270-0 {
   animation: rotate-270-360 1s linear forwards;
 }
-
 
 /* BACKWARDS ANIMATIONS */
 .rotate-90-0 {
@@ -104,12 +123,12 @@ body {
   animation: rotate-360-270 1s linear forwards;
 }
 
-
-
 .side {
   position: absolute;
   width: 600px;
   height: 300px;
+
+  backface-visibility: hidden;
   /*
   box-sizing: border-box;
   background-color:rgba(0, 0, 0, 0.15);
@@ -140,13 +159,7 @@ body {
   transform: translateZ(150px);
 }
 
-.paused{
-  -webkit-animation-play-state:paused;
-  -moz-animation-play-state:paused;
-  -o-animation-play-state:paused; 
-  animation-play-state:paused;
-}
-
+/* animation for debug */
 @keyframes rotate {
   0%  { transform: translateZ(-450px) rotateX(0deg); }
   15% { transform: translateZ(-450px) rotateX(90deg); }
