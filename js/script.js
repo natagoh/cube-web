@@ -83,9 +83,6 @@ var cubeSetup = function() {
 	var w = window.innerWidth;
 	var h = window.innerHeight;
 
-	// var w = 1200;
-	// var h = 600;
-
 	console.log(w + " " + h)
 
 	// set sizes of scene
@@ -95,16 +92,11 @@ var cubeSetup = function() {
 	// set perspective = 4w
 	document.getElementById("scene").style.perspective =  w*4 + "px";
 
-  // set perspective origin
-  //document.getElementById("scene").style.WebkitPerspectiveOrigin = "50% " + w + "px"; // Chrome, Safari and Opera
-  //document.getElementById("scene").style.perspectiveOrigin = "50% " + w + "px";
-
 	// set the sizes of the cube 
 	document.getElementById("cube").style.height = h + "px";
 	document.getElementById("cube").style.width = w + "px";
 
 	// set cube translate = h/2
-	// document.getElementById("cube").style.transform = "perspective(" + w*4 + "px)";
 	var trans = translate(0, 0, (-1*h/2));
 	var rot = rotateAroundXAxis( 0 );
 	var mat = multiplyMatrices(rot, trans);
@@ -116,12 +108,9 @@ var cubeSetup = function() {
 	for (i = 0; i < faces.length; i++) {
 		faces[i].style.width = w + "px";
 		faces[i].style.height = h + "px";
-		// faces[i].style.transform = "perspective(" + w*4 + "px)";
-		// faces[i].style.transform = "transformOrigin(50% 50% " + -1*h/2 + "px)";
 	}
 
 	// set face rotations
-
 	// back face
 	trans = translate(0, 0, (-1*h/2));
 	rot = rotateAroundXAxis( Math.PI );
@@ -140,7 +129,6 @@ var cubeSetup = function() {
 	var top = document.getElementById("cube").getElementsByClassName('side top');
 	top[0].style.transform = matstyle;
 
-
 	// bottom
 	trans = translate(0, h/2, 0);
 	rot = rotateAroundXAxis( Math.PI *3/2);
@@ -156,78 +144,81 @@ var cubeSetup = function() {
 
 }
 
-
-// var xAngle = 0, yAngle = 0;
+// var angle1 = 0;
 // document.addEventListener('keydown', function(e) {
+//   var prevAngle1 = angle1;
 //   switch(e.keyCode) {
+
 //     case 38: // up
-//       xAngle += 90;
+//       angle1 += 90;
 //       break;
 
 //     case 40: // down
-//       xAngle -= 90;
+//       angle1 -= 90;
+//       if (angle1 < 0) { angle1 = 360 + angle1; }
 //       break;
 //   };
 
-//   document.getElementById("cube").style.webkitTransform = "rotateX("+xAngle+"deg)";
+//    angle1 %= 360;
+
+   
+  // var h = window.innerHeight;
+  // var trans = translate(0, 0, -1*h/2);
+  // var rot = rotateAroundXAxis( Math.PI * angle1 / 180);
+  // var mat = multiplyMatrices(rot,trans);
+  // var matstyle = matrixArrayToCssMatrix(mat);
+  // //document.getElementById("cube").style.transform = "rotateX("+xAngle+"deg)";
+  // document.getElementById("cube").style.transform = matstyle;
+  
+
+//   var cube = document.getElementById("cube");
+//     var rotateclass = " rotate-" + prevAngle1 + "-" + angle1;
+//     cube.className = " " + rotateclass;
 // }, false);
-
-var angle1 = 0;
-document.addEventListener('keydown', function(e) {
-  var prevAngle1 = angle1;
-  switch(e.keyCode) {
-
-    case 38: // up
-      angle1 += 90;
-      break;
-
-    case 40: // down
-      angle1 -= 90;
-      if (angle1 < 0) { angle1 = 360 + angle1; }
-      break;
-  };
-
-   angle1 %= 360;
-
-
-  var h = window.innerHeight;
-  var trans = translate(0, 0, -1*h/2);
-  var rot = rotateAroundXAxis( Math.PI * angle1 / 180);
-  var mat = multiplyMatrices(rot,trans);
-  var matstyle = matrixArrayToCssMatrix(mat);
-  //document.getElementById("cube").style.transform = "rotateX("+xAngle+"deg)";
-  document.getElementById("cube").style.transform = matstyle;
-}, false);
 
 
 // get scrolling event without scrollbar
-// document.addEventListener("wheel", function(e) {
-//     triggerRotation(e);
-// });
-
 var angle = 0;
 function triggerRotation(e) {
-  // 1 scroll unit seems to be 200 (scroll down)
-    var scroll = parseInt(e.deltaY);
     var prevAngle = angle;
-    // scroll down
-    if (scroll > 0) {
-      angle -= 90;
-      if (angle < 0) { angle = 360 + angle; }
 
-    } else {
-      angle += 90;
+    // wheel event
+    if (e.type == "wheel") {
+      var scroll = parseInt(e.deltaY);
+      // scroll down
+      if (scroll > 0) {
+        angle -= 90;
+        if (angle < 0) { angle = 360 + angle; }
+
+      } else {
+        angle += 90;
+      } 
     } 
-    angle %= 360;
+    else if (e.type == "keydown") {
+      console.log("keydown" + angle);
+      switch(e.keyCode) {
+          case 38: // up key
+            angle += 90;
+            break;
 
-    console.log("prev angle: " + prevAngle + " curr angle: " + angle);
+          case 40: // down key
+            angle -= 90;
+            if (angle < 0) { angle = 360 + angle; }
+            break;
+        };
+    }
+
+    angle %= 360;
+    
     // animation jank hacked solution
     var cube = document.getElementById("cube");
     var rotateclass = " rotate-" + prevAngle + "-" + angle;
     cube.className = " " + rotateclass;
 }
+
 // throttle scrolling once per animation
 document.addEventListener("wheel", _.throttle(triggerRotation, 1000, {leading:true, trailing:false}))
+document.addEventListener("keydown", _.throttle(triggerRotation, 1000, {leading:true, trailing:false}))
 
 //converts a string of transform matrix into a matrix
 function stringToMatrix(s) {
@@ -239,13 +230,14 @@ function stringToMatrix(s) {
 // generate css keyframes with dynamic height attributes for a perfect animation
 var gen = function() {
   // first remove old styles from prev resizings
-  var head = document.getElementsByTagName('head')[0];
-  var children = head.childNodes;
-  // for (i = 0; i < children.length; i++) {
-  //   head.removeChild(children[i]);
-  // }
+  var oldStyle = document.getElementById("webkit");
+  if (oldStyle != null) {
+    var sheetParent = oldStyle.parentNode;
+    sheetParent.removeChild(oldStyle);
+  }
 
   var style = document.createElement('style');
+  style.setAttribute("id", "webkit");
   style.type = 'text/css';
   var keyFrames = '\
     @keyframes rotate-0-90 {\
@@ -280,13 +272,10 @@ var gen = function() {
       0%  {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(360deg); }\
       100% {\ transform: translateZ(-DYNAMIC_VARpx) rotateX(270deg); }\
     }';
-
      var h = window.innerHeight;
-  style.innerHTML = keyFrames.replace(/DYNAMIC_VAR/g, h/2+"");
-  head.appendChild(style);
-  console.log("genned dynamic style sheet");
+    style.innerHTML = keyFrames.replace(/DYNAMIC_VAR/g, h/2+"");
+    document.getElementsByTagName('head')[0].appendChild(style);
 }
-
 
 // animate logo
 // options: async, delayed, oneByOne
@@ -350,14 +339,5 @@ if ( document.readyState === "complete" || ( document.readyState !== "loading" &
   document.addEventListener("DOMContentLoaded", initialize);
 }
 
-// // handle resize
-// window.onresize = function(event) {
-//   initialize();
-// };
-
-
 // debounce resize 
 window.addEventListener("resize", _.debounce(initialize, 500, {leading:false, trailing:true}));
-
-
-
